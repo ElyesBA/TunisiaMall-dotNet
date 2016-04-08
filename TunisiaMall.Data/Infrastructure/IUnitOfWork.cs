@@ -9,11 +9,7 @@ namespace  TunisiaMall.Data.Infrastructure
 {
     public interface IUnitOfWork : IDisposable
     {
-
         IRepository<T> getRepository<T>() where T : class; //  return instance des RepositoryBase
         void Commit();
-      
-
-
     }
 }

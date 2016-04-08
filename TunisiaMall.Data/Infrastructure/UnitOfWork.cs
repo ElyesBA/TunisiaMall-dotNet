@@ -11,33 +11,21 @@ namespace  TunisiaMall.Data.Infrastructure
     public class UnitOfWork : IUnitOfWork
     {
         private tunisiamallContext dataContext;
-        protected tunisiamallContext DataContext
-        {
-            get
-            {
-                return dataContext = dbFactory.DataContext;
-            }
-        }
-
-       
-
         IDatabaseFactory dbFactory;
+
         public UnitOfWork(IDatabaseFactory dbFactory)
         {
             this.dbFactory = dbFactory;
+            dataContext = dbFactory.DataContext;
         }
         public void Commit()
         {
-            DataContext.SaveChanges();
+            dataContext.SaveChanges();
         }
-
-
-         
-
         
         public void Dispose()
         {
-            DataContext.Dispose();
+            dataContext.Dispose();
         }
 
         public IRepository<T> getRepository<T>() where T : class

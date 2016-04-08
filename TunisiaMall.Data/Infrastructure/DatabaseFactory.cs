@@ -7,15 +7,9 @@ using TunisiaMall.Data.Models;
 
 namespace TunisiaMall.Data.Infrastructure
 {
-    public class DatabaseFactory : IDatabaseFactory
+    public class DatabaseFactory : Disposable, IDatabaseFactory
     {
         private tunisiamallContext dataContext;
-
-
-        public DatabaseFactory()
-        {
-            dataContext = new tunisiamallContext();
-        }
         public tunisiamallContext DataContext
         {
             get
@@ -24,12 +18,14 @@ namespace TunisiaMall.Data.Infrastructure
             }
         }
 
-        tunisiamallContext IDatabaseFactory.DataContext
+        public DatabaseFactory()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            dataContext = new tunisiamallContext();
+        }
+        protected override void DisposeCore()
+        {
+            if (DataContext != null)
+                DataContext.Dispose();
         }
     }
 }

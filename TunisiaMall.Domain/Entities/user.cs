@@ -20,7 +20,6 @@ namespace TunisiaMall.Domain.Entities
             this.subscriptions = new List<subscription>();
         }
 
-        public string USER_TYPE { get; set; }
         public int idUser { get; set; }
         public string address { get; set; }
         public Nullable<bool> baned { get; set; }

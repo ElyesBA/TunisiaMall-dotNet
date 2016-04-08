@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TunisiaMall.Service", "Tuni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TunisiaMall.Service.Pattern", "TunisiaMall.Service.Pattern\TunisiaMall.Service.Pattern.csproj", "{7AD2874F-363D-4F90-9F3D-03FFFFD04166}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TunisiaMall.Test", "TunisiaMall.Test\TunisiaMall.Test.csproj", "{30E0EDD5-59C3-4913-A90A-7B63EE99C4DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{7AD2874F-363D-4F90-9F3D-03FFFFD04166}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AD2874F-363D-4F90-9F3D-03FFFFD04166}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AD2874F-363D-4F90-9F3D-03FFFFD04166}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30E0EDD5-59C3-4913-A90A-7B63EE99C4DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30E0EDD5-59C3-4913-A90A-7B63EE99C4DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30E0EDD5-59C3-4913-A90A-7B63EE99C4DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30E0EDD5-59C3-4913-A90A-7B63EE99C4DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

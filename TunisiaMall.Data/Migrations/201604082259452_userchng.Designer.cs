@@ -7,13 +7,13 @@ namespace TunisiaMall.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialSchema : IMigrationMetadata
+    public sealed partial class userchng : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSchema));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(userchng));
         
         string IMigrationMetadata.Id
         {
-            get { return "201604071502214_InitialSchema"; }
+            get { return "201604082259452_userchng"; }
         }
         
         string IMigrationMetadata.Source

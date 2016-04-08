@@ -13,11 +13,6 @@ namespace  TunisiaMall.Data.Infrastructure
     public class RepositoryBase<T> : IRepository<T> where T : class
     {
         private tunisiamallContext dataContext;
-
-
-   
-     
-
         private IDbSet<T> dbset;
         IDatabaseFactory databaseFactory;
 
@@ -41,7 +36,7 @@ namespace  TunisiaMall.Data.Infrastructure
 
         public virtual void Delete(System.Linq.Expressions.Expression<Func<T, bool>> condition)
         {
-            IEnumerable<T> list = dbset.Where(condition);
+            IEnumerable<T> list = dbset.Where<T>(condition).AsEnumerable();
             foreach (T t in list)
             {
                 dbset.Remove(t);
@@ -72,13 +67,17 @@ namespace  TunisiaMall.Data.Infrastructure
             if (orderBy != null)
                 return list.OrderBy(orderBy);
             else return list;
-
         }
 
         public virtual void Update(T e)
         {
             dbset.Attach(e); // appler l'objet e et l'attecher au context pour qu'on puisse le modifier 
             dataContext.Entry(e).State = EntityState.Modified; // modification de l'objet 
+        }
+
+        public IEnumerable<T> findAll()
+        {
+            return dbset.ToList();
         }
     }
 }

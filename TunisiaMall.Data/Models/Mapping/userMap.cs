@@ -12,10 +12,6 @@ namespace TunisiaMall.Data.Models.Mapping
             this.HasKey(t => t.idUser);
 
             // Properties
-            this.Property(t => t.USER_TYPE)
-                .IsRequired()
-                .HasMaxLength(31);
-
             this.Property(t => t.address)
                 .HasMaxLength(255);
 
@@ -52,7 +48,6 @@ namespace TunisiaMall.Data.Models.Mapping
 
             // Table & Column Mappings
           
-            this.Property(t => t.USER_TYPE).HasColumnName("USER_TYPE");
             this.Property(t => t.idUser).HasColumnName("idUser");
             this.Property(t => t.address).HasColumnName("address");
             this.Property(t => t.baned).HasColumnName("baned");
