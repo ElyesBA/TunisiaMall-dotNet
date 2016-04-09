@@ -24,11 +24,11 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.idUserSender_FK).HasColumnName("idUserSender_FK");
 
             // Relationships
-            this.HasOptional(t => t.user)
-                .WithMany(t => t.messages)
+            this.HasRequired(t => t.reciver)
+                .WithMany(t => t.recivedMessages)
                 .HasForeignKey(d => d.idUserReciver_fk);
-            this.HasOptional(t => t.user1)
-                .WithMany(t => t.messages1)
+            this.HasRequired(t => t.sender)
+                .WithMany(t => t.sentMessages)
                 .HasForeignKey(d => d.idUserSender_FK);
 
         }

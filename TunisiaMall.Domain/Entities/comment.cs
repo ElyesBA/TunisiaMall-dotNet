@@ -6,11 +6,10 @@ namespace TunisiaMall.Domain.Entities
     public partial class comment
     {
         public int idComment { get; set; }
-        public Nullable<System.DateTime> commentDate { get; set; }
-        public int rating { get; set; }
+        public DateTime commentDate { get; set; }
         public string text { get; set; }
-        public Nullable<int> idPost { get; set; }
-        public Nullable<int> idUser { get; set; }
+        public int idPost { get; set; }
+        public int idUser { get; set; }
         public virtual post post { get; set; }
         public virtual user user { get; set; }
     }

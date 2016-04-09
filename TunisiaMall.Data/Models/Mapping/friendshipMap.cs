@@ -20,11 +20,11 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.idUser2).HasColumnName("idUser2");
 
             // Relationships
-            this.HasOptional(t => t.user)
-                .WithMany(t => t.friendships)
+            this.HasRequired(t => t.user1)
+                .WithMany(t => t.sentFriendRequests)
                 .HasForeignKey(d => d.idUser1);
-            this.HasOptional(t => t.user1)
-                .WithMany(t => t.friendships1)
+            this.HasRequired(t => t.user2)
+                .WithMany(t => t.friendRequests)
                 .HasForeignKey(d => d.idUser2);
 
         }

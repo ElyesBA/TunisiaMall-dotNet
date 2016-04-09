@@ -71,13 +71,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201604082259313_init.cs" />
-    <Compile Include="Migrations\201604082259313_init.Designer.cs">
-      <DependentUpon>201604082259313_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201604082259452_userchng.cs" />
-    <Compile Include="Migrations\201604082259452_userchng.Designer.cs">
-      <DependentUpon>201604082259452_userchng.cs</DependentUpon>
+    <Compile Include="Migrations\201604091058158_init.cs" />
+    <Compile Include="Migrations\201604091058158_init.Designer.cs">
+      <DependentUpon>201604091058158_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Mapping\categoryMap.cs" />
@@ -116,11 +112,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604082259313_init.resx">
-      <DependentUpon>201604082259313_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201604082259452_userchng.resx">
-      <DependentUpon>201604082259452_userchng.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604091058158_init.resx">
+      <DependentUpon>201604091058158_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

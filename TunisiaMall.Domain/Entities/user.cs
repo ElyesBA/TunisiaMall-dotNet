@@ -9,11 +9,11 @@ namespace TunisiaMall.Domain.Entities
         {
             this.comments = new List<comment>();
             this.complaints = new List<complaint>();
-            this.friendships = new List<friendship>();
-            this.friendships1 = new List<friendship>();
+            this.sentFriendRequests = new List<friendship>();
+            this.friendRequests = new List<friendship>();
             this.gestbookentries = new List<gestbookentry>();
-            this.messages = new List<message>();
-            this.messages1 = new List<message>();
+            this.recivedMessages = new List<message>();
+            this.sentMessages = new List<message>();
             this.orders = new List<order>();
             this.posts = new List<post>();
             this.stores = new List<store>();
@@ -41,11 +41,11 @@ namespace TunisiaMall.Domain.Entities
 
         public virtual ICollection<comment> comments { get; set; }
         public virtual ICollection<complaint> complaints { get; set; }
-        public virtual ICollection<friendship> friendships { get; set; }
-        public virtual ICollection<friendship> friendships1 { get; set; }
+        public virtual ICollection<friendship> sentFriendRequests { get; set; }
+        public virtual ICollection<friendship> friendRequests { get; set; }
         public virtual ICollection<gestbookentry> gestbookentries { get; set; }
-        public virtual ICollection<message> messages { get; set; }
-        public virtual ICollection<message> messages1 { get; set; }
+        public virtual ICollection<message> recivedMessages { get; set; }
+        public virtual ICollection<message> sentMessages { get; set; }
         public virtual ICollection<order> orders { get; set; }
         public virtual ICollection<post> posts { get; set; }
         public virtual ICollection<store> stores { get; set; }
