@@ -16,13 +16,7 @@ namespace TunisiaMall.Test
             // Services
             IService<user> userService = new Service<user>();
             IService<post> postService = new Service<post>();
-            IService<comment> commentService = new Service<comment>();
-            IService<category> categoryService = new Service<category>();
-            IService<subcategory> subcatService = new Service<subcategory>();
-            IService<gestbookentry> gestbookService = new Service<gestbookentry>();
-            IService<store> storeService = new Service<store>();
-            IService<product> productService = new Service<product>();
-            // Objects
+
             user u1 = new user { login = "user1", password = "user1"};
             userService.Create(u1);
             userService.Commit();
