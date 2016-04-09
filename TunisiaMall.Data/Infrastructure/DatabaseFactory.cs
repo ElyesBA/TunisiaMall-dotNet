@@ -7,21 +7,21 @@ using TunisiaMall.Data.Models;
 
 namespace TunisiaMall.Data.Infrastructure
 {
-    public class DatabaseFactory : Disposable
+    public class DatabaseFactory : Disposable, IDatabaseFactory
     {
         // Attributes
-        private static tunisiamallContext DataContext = null;
-        // Methods
-        private DatabaseFactory()
+        private tunisiamallContext dataContext;
+        public tunisiamallContext DataContext
         {
-        }
-        public static tunisiamallContext getContext()
-        {
-            if (DataContext == null)
+            get
             {
-                DataContext = new tunisiamallContext();
+                return dataContext;
             }
-            return DataContext;
+        }
+        // Methods
+        public DatabaseFactory()
+        {
+            dataContext = new tunisiamallContext();
         }
         protected override void DisposeCore()
         {

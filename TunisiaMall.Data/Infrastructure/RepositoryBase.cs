@@ -13,20 +13,17 @@ namespace  TunisiaMall.Data.Infrastructure
     public class RepositoryBase<T> : IRepository<T> where T : class
     {
         // Attributes
+        private IDatabaseFactory databaseFactory;
         private tunisiamallContext dataContext;
-        private IDbSet<T> dbset;
+        private readonly IDbSet<T> dbset;
         // Methods
-        public RepositoryBase()
+        public RepositoryBase(IDatabaseFactory dbFactory)
         {
-            dbset = DataContext.Set<T>();
+            this.databaseFactory = dbFactory;
+            this.dataContext = dbFactory.DataContext;
+            this.dbset = dataContext.Set<T>();
         }
-        public tunisiamallContext DataContext
-        {
-            get
-            {
-                return dataContext = DatabaseFactory.getContext();
-            }
-        }
+        
 
         public virtual void Create(T e)
         {
@@ -45,11 +42,6 @@ namespace  TunisiaMall.Data.Infrastructure
         public virtual void Delete(T e)
         {
             dbset.Remove(e);
-        }
-
-        public virtual T FindById(string id)
-        {
-            return dbset.Find(id); // find prend soit string soit Long
         }
 
         public virtual T FindById(long id)

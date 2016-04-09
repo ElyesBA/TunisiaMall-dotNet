@@ -13,9 +13,11 @@ namespace TunisiaMall.Test
     {
         static void Main(string[] args)
         {
+            IDatabaseFactory dbFactory = new DatabaseFactory();
+            IUnitOfWork work = new UnitOfWork(dbFactory);
             // Services
-            IService<user> userService = new Service<user>();
-            IService<post> postService = new Service<post>();
+            IService<user> userService = new Service<user>(work);
+            IService<post> postService = new Service<post>(work);
 
             user u1 = new user { login = "user1", password = "user1"};
             userService.Create(u1);
@@ -23,6 +25,7 @@ namespace TunisiaMall.Test
             post p1 = new post { title = "post 1", postDate = DateTime.Now, user = u1};
             postService.Create(p1);
             postService.Commit();
+            Console.WriteLine(p1.user.idUser);
             Console.ReadKey();
         }
     }
