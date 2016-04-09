@@ -8,17 +8,7 @@ namespace TunisiaMall.Data.Models.Mapping
         public subscriptionMap()
         {
             // Primary Key
-            this.HasKey(t => new { t.idEvent, t.idSubscription, t.idUser });
-
-            // Properties
-            this.Property(t => t.idEvent)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
-            this.Property(t => t.idSubscription)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
-            this.Property(t => t.idUser)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            this.HasKey(t => t.idSubscription);
 
             // Table & Column Mappings
             ToTable("subscription");

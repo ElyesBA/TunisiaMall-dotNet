@@ -9,12 +9,16 @@ using TunisiaMall.Data.Infrastructure;
 
 namespace TunisiaMall.Service.Pattern
 {
-   public class Service<T> : IService<T> where T : class
+    public class Service<T> : IService<T> where T : class
     {
-        IUnitOfWork utfk;
-        protected Service(IUnitOfWork utfk)
+        // Attributes
+        private IDatabaseFactory dbFactory;
+        private IUnitOfWork utfk;
+        // Methods
+        public Service(IUnitOfWork utfk)
         {
-            this.utfk = utfk;
+            this.dbFactory = new DatabaseFactory();
+            this.utfk = new UnitOfWork(this.dbFactory);
         }
 
         public void Commit()
@@ -25,20 +29,6 @@ namespace TunisiaMall.Service.Pattern
             }
             catch (Exception ex)
             {
-
-                throw;
-            }
-        }
-
-        public void CommitAsync()
-        {
-            try
-            {
-              //  utfk.CommitAsync();
-            }
-            catch (Exception ex)
-            {
-
                 throw;
             }
         }
@@ -47,27 +37,20 @@ namespace TunisiaMall.Service.Pattern
         {
             utfk.Dispose();
         }
-    
 
-
-    public void Create(T e)
+        public void Create(T e)
         {
             utfk.getRepository<T>().Create(e);
         }
 
         public void Delete(Expression<Func<T, bool>> condition)
         {
-           
+            utfk.getRepository<T>().Delete(condition);
         }
 
         public void Delete(T e)
         {
             utfk.getRepository<T>().Delete(e);
-        }
-
-        public T FindById(string id)
-        {
-            return utfk.getRepository<T>().FindById(id);
         }
 
         public T FindById(long id)
@@ -82,7 +65,12 @@ namespace TunisiaMall.Service.Pattern
 
         public void Update(T e)
         {
-             utfk.getRepository<T>().Update(e);
+            utfk.getRepository<T>().Update(e);
+        }
+
+        public IEnumerable<T> findAll()
+        {
+            return utfk.getRepository<T>().findAll();
         }
     }
 }

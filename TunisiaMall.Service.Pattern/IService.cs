@@ -14,9 +14,8 @@ namespace TunisiaMall.Service.Pattern
         void Create(T e);
         void Update(T e);
         void Delete(T e);
-        //    IEnumerable<T> findAll(); // le type de retour Liste de T
+        IEnumerable<T> findAll();
         T FindById(long id);
-        T FindById(String id);
         IEnumerable<T> GetMany(Expression<Func<T, bool>> condition = null, Expression<Func<T, bool>> orderBy = null);
         // L'expression lamda est de type "Expression<Func<T, bool>>" comme par exemple 5 est de type int
         //une expression lamda peut retourner soit true or false d'ou le type bool 
@@ -24,10 +23,7 @@ namespace TunisiaMall.Service.Pattern
         // si on met les 2 parametres null ça devient la methode findAll() ==> donc on enleve la methode findAll
 
         void Delete(Expression<Func<T, bool>> condition);
-
         void Commit();
-        void CommitAsync();
-
         void Dispose();
 
     }
