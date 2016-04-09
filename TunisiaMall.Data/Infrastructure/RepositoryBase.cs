@@ -15,18 +15,16 @@ namespace  TunisiaMall.Data.Infrastructure
         // Attributes
         private tunisiamallContext dataContext;
         private IDbSet<T> dbset;
-        private IDatabaseFactory databaseFactory;
         // Methods
-        public RepositoryBase(IDatabaseFactory dbFactory)
+        public RepositoryBase()
         {
-            this.databaseFactory = dbFactory;
             dbset = DataContext.Set<T>();
         }
         public tunisiamallContext DataContext
         {
             get
             {
-                return dataContext = databaseFactory.DataContext;
+                return dataContext = DatabaseFactory.getContext();
             }
         }
 

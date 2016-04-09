@@ -23,24 +23,13 @@ namespace TunisiaMall.Test
             IService<store> storeService = new Service<store>();
             IService<product> productService = new Service<product>();
             // Objects
-            user u1 = new user();
-            u1.login = "user1";
-            u1.password = "user1";
-            user u2 = new user();
-            u2.login = "user2";
-            u2.password = "user2";
-            // Create
+            user u1 = new user { login = "user1", password = "user1"};
             userService.Create(u1);
-            userService.Create(u2);
-            // Commit
             userService.Commit();
+            post p1 = new post { title = "post 1", postDate = DateTime.Now, user = u1};
+            postService.Create(p1);
             postService.Commit();
-            commentService.Commit();
-            categoryService.Commit();
-            subcatService.Commit();
-            gestbookService.Commit();
-            storeService.Commit();
-            productService.Commit();
+            Console.ReadKey();
         }
     }
 }
