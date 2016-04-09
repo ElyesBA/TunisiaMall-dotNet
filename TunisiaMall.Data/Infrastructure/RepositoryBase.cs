@@ -12,10 +12,11 @@ namespace  TunisiaMall.Data.Infrastructure
 {
     public class RepositoryBase<T> : IRepository<T> where T : class
     {
+        // Attributes
         private tunisiamallContext dataContext;
         private IDbSet<T> dbset;
-        IDatabaseFactory databaseFactory;
-
+        private IDatabaseFactory databaseFactory;
+        // Methods
         public RepositoryBase(IDatabaseFactory dbFactory)
         {
             this.databaseFactory = dbFactory;

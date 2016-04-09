@@ -9,6 +9,7 @@ namespace TunisiaMall.Data.Infrastructure
 {
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {
+        // Attributes
         private tunisiamallContext dataContext;
         public tunisiamallContext DataContext
         {
@@ -17,7 +18,7 @@ namespace TunisiaMall.Data.Infrastructure
                 return dataContext;
             }
         }
-
+        // Methods
         public DatabaseFactory()
         {
             dataContext = new tunisiamallContext();

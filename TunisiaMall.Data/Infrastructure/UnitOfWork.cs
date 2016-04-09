@@ -10,9 +10,10 @@ namespace  TunisiaMall.Data.Infrastructure
 {
     public class UnitOfWork : IUnitOfWork
     {
+        // Attributes
         private tunisiamallContext dataContext;
-        IDatabaseFactory dbFactory;
-
+        private IDatabaseFactory dbFactory;
+        // Methods
         public UnitOfWork(IDatabaseFactory dbFactory)
         {
             this.dbFactory = dbFactory;
@@ -30,7 +31,7 @@ namespace  TunisiaMall.Data.Infrastructure
 
         public IRepository<T> getRepository<T>() where T : class
         {
-            IRepository<T> r = new RepositoryBase<T>(dbFactory); // remplace 3 instances de classe 
+            IRepository<T> r = new RepositoryBase<T>(dbFactory);
             return r;
         }
     }
