@@ -25,6 +25,5 @@ namespace TunisiaMall.Service.Pattern
         void Delete(Expression<Func<T, bool>> condition);
         void Commit();
         void Dispose();
-
     }
 }

@@ -12,12 +12,10 @@ namespace  TunisiaMall.Data.Infrastructure
     {
         // Attributes
         private tunisiamallContext dataContext;
-        private IDatabaseFactory dbFactory;
         // Methods
-        public UnitOfWork(IDatabaseFactory dbFactory)
+        public UnitOfWork()
         {
-            this.dbFactory = dbFactory;
-            dataContext = dbFactory.DataContext;
+            dataContext = DatabaseFactory.getContext();
         }
         public void Commit()
         {
@@ -31,7 +29,7 @@ namespace  TunisiaMall.Data.Infrastructure
 
         public IRepository<T> getRepository<T>() where T : class
         {
-            IRepository<T> r = new RepositoryBase<T>(dbFactory);
+            IRepository<T> r = new RepositoryBase<T>();
             return r;
         }
     }

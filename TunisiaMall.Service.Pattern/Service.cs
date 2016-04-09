@@ -12,13 +12,11 @@ namespace TunisiaMall.Service.Pattern
     public class Service<T> : IService<T> where T : class
     {
         // Attributes
-        private IDatabaseFactory dbFactory;
         private IUnitOfWork utfk;
         // Methods
         public Service()
         {
-            this.dbFactory = new DatabaseFactory();
-            this.utfk = new UnitOfWork(this.dbFactory);
+            this.utfk = new UnitOfWork();
         }
 
         public void Commit()
