@@ -42,12 +42,12 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.pictureUrl)
                 .HasMaxLength(255);
 
-         
 
-        
+
+
 
             // Table & Column Mappings
-          
+            ToTable("user");
             this.Property(t => t.idUser).HasColumnName("idUser");
             this.Property(t => t.address).HasColumnName("address");
             this.Property(t => t.baned).HasColumnName("baned");

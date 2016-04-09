@@ -15,7 +15,7 @@ namespace TunisiaMall.Service.Pattern
         private IDatabaseFactory dbFactory;
         private IUnitOfWork utfk;
         // Methods
-        public Service(IUnitOfWork utfk)
+        public Service()
         {
             this.dbFactory = new DatabaseFactory();
             this.utfk = new UnitOfWork(this.dbFactory);
