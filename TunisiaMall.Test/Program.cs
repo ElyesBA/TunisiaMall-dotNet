@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TunisiaMall.Data.Infrastructure;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Pattern;
+using TunisiaMall.Service.Services;
 
 namespace TunisiaMall.Test
 {
@@ -16,17 +17,16 @@ namespace TunisiaMall.Test
             IDatabaseFactory dbFactory = new DatabaseFactory();
             IUnitOfWork work = new UnitOfWork(dbFactory);
             // Services
-            IService<user> userService = new Service<user>(work);
-            IService<post> postService = new Service<post>(work);
+            IUserService userService = new UserService();
 
             user u1 = new user { login = "user1", password = "user1"};
             userService.Create(u1);
             userService.Commit();
-            post p1 = new post { title = "post 1", postDate = DateTime.Now, user = u1};
+            /*post p1 = new post { title = "post 1", postDate = DateTime.Now, user = u1};
             postService.Create(p1);
             postService.Commit();
             Console.WriteLine(p1.user.idUser);
-            Console.ReadKey();
+            Console.ReadKey();*/
         }
     }
 }

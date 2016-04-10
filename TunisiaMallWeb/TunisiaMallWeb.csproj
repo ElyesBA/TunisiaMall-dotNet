@@ -212,8 +212,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GuestBookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -283,6 +285,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Store\DetailStore.cshtml" />
+    <Content Include="Views\Store\DetailStoreName.cshtml" />
+    <Content Include="Views\Store\ListStore.cshtml" />
+    <Content Include="Views\Store\ListStoreByCategory.cshtml" />
+    <Content Include="Views\Store\ListStoreBySubCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -303,6 +310,10 @@
     <ProjectReference Include="..\TunisiaMall.Domain\TunisiaMall.Domain.csproj">
       <Project>{23a4f834-5e78-4977-928c-5d17cccc3d15}</Project>
       <Name>TunisiaMall.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TunisiaMall.Service.Pattern\TunisiaMall.Service.Pattern.csproj">
+      <Project>{7ad2874f-363d-4f90-9f3d-03ffffd04166}</Project>
+      <Name>TunisiaMall.Service.Pattern</Name>
     </ProjectReference>
     <ProjectReference Include="..\TunisiaMall.Service\TunisiaMall.Service.csproj">
       <Project>{5a600f1b-06e9-42ba-b94e-8d4bf4e10bf7}</Project>

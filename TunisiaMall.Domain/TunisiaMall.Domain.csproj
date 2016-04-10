@@ -60,7 +60,7 @@
     <Compile Include="Entities\category.cs" />
     <Compile Include="Entities\comment.cs" />
     <Compile Include="Entities\complaint.cs" />
-    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\customer.cs" />
     <Compile Include="Entities\event.cs" />
     <Compile Include="Entities\friendship.cs" />
     <Compile Include="Entities\gestbookentry.cs" />

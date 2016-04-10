@@ -17,7 +17,7 @@ namespace  TunisiaMall.Data.Infrastructure
         public UnitOfWork(IDatabaseFactory dbFactory)
         {
             this.dbFactory = dbFactory;
-            dataContext = dbFactory.DataContext;
+            this.dataContext = dbFactory.DataContext;
         }
         public void Commit()
         {

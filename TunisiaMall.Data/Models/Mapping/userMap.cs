@@ -62,7 +62,7 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.phone).HasColumnName("phone");
             this.Property(t => t.pictureUrl).HasColumnName("pictureUrl");
 
-            Map<Customer>(c =>
+            Map<customer>(c =>
             {
                 c.Requires("USER_TYPE").HasValue("customer");
             });

@@ -14,7 +14,7 @@ namespace TunisiaMall.Service.Pattern
         // Attributes
         private IUnitOfWork work;
         // Methods
-        public Service(IUnitOfWork work)
+        protected Service(IUnitOfWork work)
         {
             this.work = work;
         }
@@ -64,11 +64,6 @@ namespace TunisiaMall.Service.Pattern
         public void Update(T e)
         {
             work.getRepository<T>().Update(e);
-        }
-
-        public IEnumerable<T> findAll()
-        {
-            return work.getRepository<T>().findAll();
         }
     }
 }

@@ -16,15 +16,20 @@ namespace  TunisiaMall.Data.Infrastructure
         private IDatabaseFactory databaseFactory;
         private tunisiamallContext dataContext;
         private readonly IDbSet<T> dbset;
+        public tunisiamallContext DataContext
+        {
+            get
+            {
+                return dataContext = databaseFactory.DataContext;
+            }
+        }
         // Methods
         public RepositoryBase(IDatabaseFactory dbFactory)
         {
             this.databaseFactory = dbFactory;
-            this.dataContext = dbFactory.DataContext;
-            this.dbset = dataContext.Set<T>();
+            this.dbset = DataContext.Set<T>();
         }
         
-
         public virtual void Create(T e)
         {
             dbset.Add(e);
@@ -63,12 +68,7 @@ namespace  TunisiaMall.Data.Infrastructure
         public virtual void Update(T e)
         {
             dbset.Attach(e); // appler l'objet e et l'attecher au context pour qu'on puisse le modifier 
-            dataContext.Entry(e).State = EntityState.Modified; // modification de l'objet 
-        }
-
-        public IEnumerable<T> findAll()
-        {
-            return dbset.ToList();
+            DataContext.Entry(e).State = EntityState.Modified; // modification de l'objet 
         }
     }
 }

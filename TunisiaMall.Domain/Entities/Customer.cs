@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace TunisiaMall.Domain.Entities
 {
-    public class Customer: user
+    public class customer: user
     {
-
         public string facturationAddr { get; set; }
         public string shipementAddr { get; set; }
     }

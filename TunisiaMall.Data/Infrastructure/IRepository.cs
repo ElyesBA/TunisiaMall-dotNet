@@ -12,7 +12,6 @@ namespace  TunisiaMall.Data.Infrastructure
         void Create(T e);
         void Update(T e);
         void Delete(T e);
-        IEnumerable<T> findAll();
         T FindById(long id);
         IEnumerable<T> GetMany(Expression<Func<T, bool>> condition = null, Expression<Func<T, bool>> orderBy = null);
         // L'expression lamda est de type "Expression<Func<T, bool>>" comme par exemple 5 est de type int
