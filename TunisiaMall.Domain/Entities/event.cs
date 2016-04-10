@@ -5,8 +5,6 @@ namespace TunisiaMall.Domain.Entities
 {
     public partial class Event
     {
-      
-
         public int idEvent { get; set; }
         public Nullable<System.DateTime> dateEvent { get; set; }
         public string description { get; set; }
