@@ -228,6 +228,43 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\cloud-zoom.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\jquery.bxslider.css" />
+    <Content Include="Content\css\nivo-slider.css" />
+    <Content Include="Content\css\owl.carousel.css" />
+    <Content Include="Content\css\responsive.css" />
+    <Content Include="Content\css\style-boxed.css" />
+    <Content Include="Content\css\style-green.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\404.jpg" />
+    <Content Include="Content\images\AjaxLoader.gif" />
+    <Content Include="Content\images\bx_loader.gif" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\controls.png" />
+    <Content Include="Content\images\flag-spain.png" />
+    <Content Include="Content\images\flag-us.png" />
+    <Content Include="Content\images\grabbing.png" />
+    <Content Include="Content\images\icon-mega.png" />
+    <Content Include="Content\images\loading.gif" />
+    <Content Include="Content\images\logo-green.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\next.png" />
+    <Content Include="Content\images\payment.png" />
+    <Content Include="Content\images\prev.png" />
+    <Content Include="Content\images\rating.png" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\cloud-zoom.js" />
+    <Content Include="Content\js\countdown.js" />
+    <Content Include="Content\js\custom.js" />
+    <Content Include="Content\js\jquery-1.11.3.min.js" />
+    <Content Include="Content\js\jquery-ui.min.js" />
+    <Content Include="Content\js\jquery.bxslider.min.js" />
+    <Content Include="Content\js\jquery.nivo.slider.pack.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -239,6 +276,12 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -290,9 +333,17 @@
     <Content Include="Views\Store\ListStore.cshtml" />
     <Content Include="Views\Store\ListStoreByCategory.cshtml" />
     <Content Include="Views\Store\ListStoreBySubCategory.cshtml" />
+    <Content Include="Views\Shared\_MainTemplate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\accessories\" />
+    <Folder Include="Content\images\ads\" />
+    <Folder Include="Content\images\avatar\" />
+    <Folder Include="Content\images\blog\" />
+    <Folder Include="Content\images\brand\" />
+    <Folder Include="Content\images\products\" />
+    <Folder Include="Content\images\slider\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
