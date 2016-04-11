@@ -17,16 +17,20 @@ namespace TunisiaMall.Test
             IDatabaseFactory dbFactory = new DatabaseFactory();
             IUnitOfWork work = new UnitOfWork(dbFactory);
             // Services
+            IMessageService messageService = new MessageService();
             IUserService userService = new UserService();
 
-            user u1 = new user { login = "user1", password = "user1"};
+            List<message> ls = messageService.getMessagesForUser(4);
+            Console.WriteLine(ls.Count());
+            foreach(var m in ls)
+            {
+                Console.WriteLine("{0} {1}",m.idMessage, m.text);
+            }
+            /*user u1 = new user { login = "user1", password = "user1"};
             userService.Create(u1);
-            userService.Commit();
-            /*post p1 = new post { title = "post 1", postDate = DateTime.Now, user = u1};
-            postService.Create(p1);
-            postService.Commit();
-            Console.WriteLine(p1.user.idUser);
-            Console.ReadKey();*/
+            userService.Commit();*/
+
+            Console.ReadKey();
         }
     }
 }
