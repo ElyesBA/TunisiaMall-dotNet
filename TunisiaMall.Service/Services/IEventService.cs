@@ -10,6 +10,6 @@ namespace TunisiaMall.Service.Services
 {
     public interface IEventService : IService<Event>
     {
-
+       
     }
 }

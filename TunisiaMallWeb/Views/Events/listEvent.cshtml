@@ -1,0 +1,63 @@
+﻿@model IEnumerable<TunisiaMall.Domain.Entities.Event>
+
+@{
+    ViewBag.Title = "listEvent";
+}
+
+<h2>listEvent</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.idEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.periodEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.titleEvent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.typeEvent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.idEvent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateEvent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.periodEvent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.titleEvent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.typeEvent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
