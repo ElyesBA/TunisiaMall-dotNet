@@ -13,5 +13,6 @@ namespace TunisiaMall.Service.Services
         List<message> getMessagesForUser(int idUser);
         List<message> getConversation(int idUser1, int idUser2);
         void sendMessage(int idSender, int idReceiver, string text);
+        void deleteConversation(int idUser1, int idUser2);
     }
 }

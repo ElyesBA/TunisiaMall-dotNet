@@ -23,6 +23,22 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/css/main.css")">
     <link rel="stylesheet" href="@Url.Content("~/Content/css/main-responsive.css")">
     <link id="primary_color_scheme" rel="stylesheet" href="@Url.Content("~/Content/css/theme_meadow.css")">
+    <style>
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
+        }
+    </style>
     <script src="@Url.Content("~/Content/js/Vendor/modernizr.js")"></script>
     <noscript>
         <link rel="stylesheet" href="@Url.Content("~/Content/css/styleNoJs.css")">
@@ -57,7 +73,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right service-nav">
                         <li>
-                            <a id="dropdownMenuLogin" href="#" data-toggle="dropdown" class="upper dropdown-toggle">Login</a>
+                            <a id="dropdownMenuLogin" href="#" data-toggle="dropdown" class="upper dropdown-toggle"><i class="fa fa-sign-in fa-lg"></i> Login</a>
                             <div aria-labelledby="dropdownMenuLogin" class="dropdown-menu widget-box">
                                 <form>
                                     <div class="form-group">
@@ -78,6 +94,9 @@
                                     </div><a href="#"><small>Lost your Password?</small></a>
                                 </form>
                             </div>
+                        </li>
+                        <li>
+                            <a id="InboxMenu" href="@Url.Action("Index", "Message")" ><i class="fa fa-inbox fa-lg"></i> Inbox</a>
                         </li>
                         <li>
                             <a id="dropdownMenuCart" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;<span class="badge">2</span></a>
@@ -105,7 +124,7 @@
                     <ul class="nav yamm navbar-nav navbar-left main-nav">
                         <!-- istanzio un id univoco-->
                         <li class="dropdown">
-                            <a href="#" title="Home" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Home" data-ref="#" class="dropdown-toggle">Home</a>
+                            <a href="@Url.Action("Index", "Home")" title="Home" id="menu_item_Home">Home</a>
                         </li>
                         <!-- istanzio un id univoco-->
                         <li class="dropdown yamm-fw">
