@@ -50,9 +50,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Services\EventService.cs" />
+    <Compile Include="Services\IOrderLineService.cs" />
+    <Compile Include="Services\IOrderService.cs" />
+    <Compile Include="Services\IPointsService.cs" />
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IEventService.cs" />
     <Compile Include="Services\ICategoryService.cs" />
+    <Compile Include="Services\OrderLineService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PointsService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\GuestBookService.cs" />

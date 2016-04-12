@@ -10,6 +10,8 @@ namespace TunisiaMall.Service.Services
 {
     public interface IProductService : IService<product>
     {
+        IEnumerable<product> getAll();
+        product getProdByID(int id);
 
     }
 }

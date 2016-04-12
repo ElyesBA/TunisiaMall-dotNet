@@ -10,5 +10,6 @@ namespace TunisiaMall.Domain.Entities
     {
         public string facturationAddr { get; set; }
         public string shipementAddr { get; set; }
+        public int points { get; set; }
     }
 }

@@ -12,10 +12,6 @@ namespace TunisiaMall.Data.Models.Mapping
             // Primary Key
             this.HasKey(t => t.idOrderLine);
 
-            // Properties
-            this.Property(t => t.idOrderLine)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
             // Table & Column Mappings
             
             this.Property(t => t.idOrderLine).HasColumnName("idOrderLine");
