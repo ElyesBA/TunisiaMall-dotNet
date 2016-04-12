@@ -1,43 +1,42 @@
 ﻿@model IEnumerable<TunisiaMall.Domain.Entities.store>
 
 @{
-    ViewBag.Title = "ListStoreByCategory";
+    ViewBag.Title = "ListPromotionnelStore";
 }
 
-<h2>Tunisia Mall Stores By Category</h2>
-
-
+<h2>Latest Promotion Store </h2>
 
 
 <table class="table">
     <tr>
-      <th>
 
-      </th>
+        <th>
+
+        </th>
         <th>
             @Html.DisplayName("Store")
         </th>
         <th>
             @Html.DisplayName("Description")
         </th>
-
+      
+      
         <th>
-            @Html.DisplayName("Status")
-        </th>
-        <th>
-            @Html.DisplayName("Openning day")
+            @Html.DisplayName("Category")
         </th>
         <th>
             @Html.DisplayName("Contact")
         </th>
- 
+        <th>
+            @Html.DisplayName("Virtual Visit")
+        </th>
+      
         <th></th>
     </tr>
 
-@foreach (var item in Model)
-{
-    
+@foreach (var item in Model) {
     <tr>
+
         <td>
 
             @if (item.name == "zara")
@@ -71,25 +70,46 @@
             @Html.DisplayFor(modelItem => item.description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.status)
+            @Html.DisplayFor(modelItem => item.category.libelle)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.openingDay)
-        </td>
-     
         <td>
             @Html.DisplayFor(modelItem => item.tel)
         </td>
-       
-       
         <td>
-          @Html.ActionLink("Details", "DetailStore", new { id = item.idStroe }) 
+            @if (item.name == "zara")
+            {
+
+                <a href="http://localhost/zaraeeed.html">Visit me!</a>
+            }
+            @if (item.name == "lufian")
+            {
+                <a href="http://localhost/lufianvisit.html">Visit me!</a>
+            }
+            @if (item.name == "samsung")
+            {
+                <a href="http://localhost/samsung.html">Visit me!</a>
+            }
+            @if (item.name == "benetton")
+            {
+                <a href="http://localhost/benetton.html">Visit me!</a>
+            }
+            @if (item.name == "citysport")
+            {
+                <a href="http://localhost/citySport.html">Visit me!</a>
+            }
+
+        </td>
+
+
+        
+        <td>
+          
+            @Html.ActionLink("View Products", "GetProductByPromotionStore", new { id = item.idStroe })
+
+            
+      
         </td>
     </tr>
 }
 
 </table>
-<p>
-
-    @Html.ActionLink("Back to List", "../GetAllCategories")
-</p>

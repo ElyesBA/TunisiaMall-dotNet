@@ -5,20 +5,7 @@ namespace TunisiaMall.Domain.Entities
 {
     public partial class user
     {
-        public user()
-        {
-            this.comments = new List<comment>();
-            this.complaints = new List<complaint>();
-            this.sentFriendRequests = new List<friendship>();
-            this.friendRequests = new List<friendship>();
-            this.gestbookentries = new List<gestbookentry>();
-            this.recivedMessages = new List<message>();
-            this.sentMessages = new List<message>();
-            this.orders = new List<order>();
-            this.posts = new List<post>();
-            this.stores = new List<store>();
-            this.subscriptions = new List<subscription>();
-        }
+
 
         public int idUser { get; set; }
         public string address { get; set; }

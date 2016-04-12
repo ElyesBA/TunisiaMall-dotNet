@@ -2,56 +2,82 @@
 
 @{
     ViewBag.Title = "ListStore";
+
+
 }
 
-<h2>ListStore</h2>
+<h2>Tunisia Mall Stores</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
+
+<br />
+<br/>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idStroe)
+         
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.description)
+            @Html.DisplayName("Store")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.name)
+            @Html.DisplayName("Description")
+        </th>
+
+        <th>
+            @Html.DisplayName("Status")
+        </th>
+       
+        <th>
+            @Html.DisplayName("Contact")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.openingDay)
+            @Html.DisplayName("Category")
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.status)
+            @Html.DisplayName("Virtual Visit")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tel)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.category_fk)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idUser)
-        </th>
+       
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+
         <td>
-            @Html.DisplayFor(modelItem => item.idStroe)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
+
+@if (item.name == "zara")
+{
+
+    <img src="http://localhost/zara.jpg">
+}
+@if (item.name == "lufian")
+{
+
+    <img src="http://localhost/lufian.jpg">
+}@if (item.name == "benetton")
+{
+
+    <img src="http://localhost/benetton.jpg">
+}@if (item.name == "citysport")
+{
+
+    <img src="http://localhost/citysport.png">
+}@if (item.name == "samsung")
+{
+
+    <img src="http://localhost/samsung.jpg">
+}
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.openingDay)
+            @Html.DisplayFor(modelItem => item.description)
         </td>
+       
+      
         <td>
             @Html.DisplayFor(modelItem => item.status)
         </td>
@@ -59,15 +85,36 @@
             @Html.DisplayFor(modelItem => item.tel)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.category_fk)
+            @Html.DisplayFor(modelItem => item.category.libelle)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idUser)
+            @if (item.name == "zara")
+            {
+              
+                <a href="http://localhost/zaraeeed.html">Visit me!</a>
+            }
+            @if (item.name == "lufian")
+            {
+                <a href="http://localhost/lufianvisit.html">Visit me!</a>
+            }
+            @if (item.name == "samsung")
+            {
+                <a href="http://localhost/samsung.html">Visit me!</a>
+            }
+            @if (item.name == "benetton")
+            {
+                <a href="http://localhost/benetton.html">Visit me!</a>
+            }
+            @if (item.name == "citysport")
+            {
+                <a href="http://localhost/citySport.html">Visit me!</a>
+            }
+        
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+           
+            @Html.ActionLink("Details", "DetailStore", new {  id=item.idStroe }) 
+           
         </td>
     </tr>
 }

@@ -10,6 +10,10 @@ namespace TunisiaMall.Service
 {
     public interface IGuestBookService: IService<gestbookentry>
     {
+        IEnumerable<gestbookentry> GetGuestBookOrderByDate();
+        IEnumerable<gestbookentry> GetGuestBookEntryByKeyword(string keyword);
+        IEnumerable<gestbookentry> GetGuestBookEntryByDate(DateTime date);
 
+        IEnumerable<gestbookentry> FindGuestBookEntry(DateTime date, string keyword);
     }
 }

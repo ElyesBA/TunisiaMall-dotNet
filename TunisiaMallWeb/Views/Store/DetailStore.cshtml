@@ -4,38 +4,60 @@
     ViewBag.Title = "DetailStore";
 }
 
-<h2>DetailStore</h2>
+<h2>Store Information</h2>
 
 <div>
-    <h4>store</h4>
+    <h4>Store</h4>
+
+
+    <div>
+
+        @if (Model.name == "zara")
+        {
+
+            <img src="http://localhost/zara.jpg">
+        }
+        @if (Model.name == "lufian")
+        {
+
+            <img src="http://localhost/lufian.jpg">
+        }@if (Model.name == "benetton")
+        {
+
+            <img src="http://localhost/benetton.jpg">
+        }@if (Model.name == "citysport")
+        {
+
+            <img src="http://localhost/citysport.png">
+        }@if (Model.name == "samsung")
+        {
+
+            <img src="http://localhost/samsung.jpg">
+        }
+
+    </div>
     <hr />
     <dl class="dl-horizontal">
+     
         <dt>
-            @Html.DisplayNameFor(model => model.idStroe)
+            @Html.DisplayName("Store")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.idStroe)
+            @Html.DisplayFor(model => model.name)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.description)
+            @Html.DisplayName("Description")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.description)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
+      
 
         <dt>
-            @Html.DisplayNameFor(model => model.openingDay)
+            @Html.DisplayName("Openning day")
         </dt>
 
         <dd>
@@ -43,7 +65,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.status)
+           @Html.DisplayName("Status")
         </dt>
 
         <dd>
@@ -51,7 +73,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.tel)
+            @Html.DisplayName("Contact")
         </dt>
 
         <dd>
@@ -59,24 +81,46 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.category.libelle)
+            @Html.DisplayName("Category")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.category.libelle)
         </dd>
-
         <dt>
-            @Html.DisplayNameFor(model => model.idUser)
+            @Html.DisplayName("Virtual Visit")
         </dt>
-
         <dd>
-            @Html.DisplayFor(model => model.idUser)
+
+            @if (Model.name == "zara")
+            {
+
+                <a href="http://localhost/zaraeeed.html">Visit me!</a>
+            }
+            @if (Model.name == "lufian")
+            {
+                <a href="http://localhost/lufianvisit.html">Visit me!</a>
+            }
+            @if (Model.name == "samsung")
+            {
+                <a href="http://localhost/samsung.html">Visit me!</a>
+            }
+            @if (Model.name == "benetton")
+            {
+                <a href="http://localhost/benetton.html">Visit me!</a>
+            }
+            @if (Model.name == "citysport")
+            {
+                <a href="http://localhost/citySport.html">Visit me!</a>
+            }
+
         </dd>
+
+   
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
+    
+    @Html.ActionLink("Back to List", "ListStore")
 </p>

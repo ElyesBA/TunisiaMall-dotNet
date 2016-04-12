@@ -27,11 +27,7 @@ namespace TunisiaMall.Service
        
         }
 
-        //ok
-        public IEnumerable<store> GetAllStores()
-        {
-            return utfk.getRepository<store>().GetMany();
-        }
+   
 
         //ok
         public IEnumerable<store> GetStoreBySubCategory(string subcategoryName)
@@ -43,13 +39,27 @@ namespace TunisiaMall.Service
                
         }
 
+        //ok
         public IEnumerable<store> GetStoreByPromotionProduct()
         {
+           
             var res = from product in dbf.DataContext.products
                       where product.promotion.state == true
                       select product.store;
+             return res.Distinct().ToList();
+        }
+
+
+        public IEnumerable<product> GetProductByPromotionStore(int id)
+        {
+           
+            var res = from product in dbf.DataContext.products
+                      where product.promotion.state == true
+                      where product.store.idStroe == id
+                      select product;
             return res;
         }
+
 
         public IEnumerable<store> GetStoreByEvent(string titleEvent)
         {
@@ -60,11 +70,7 @@ namespace TunisiaMall.Service
         }
 
 
-        // ok 
-        public store GetStore(long id)
-        {
-           return  utfk.getRepository<store>().FindById(id);
-        }
+ 
 
 
         // ok 
@@ -75,8 +81,7 @@ namespace TunisiaMall.Service
                       select store;
             return res.FirstOrDefault();
         }
-        
 
-
+       
     }
 }

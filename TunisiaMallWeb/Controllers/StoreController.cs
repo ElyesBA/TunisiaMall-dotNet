@@ -1,24 +1,31 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service;
+using TunisiaMall.Service.Services;
 
 namespace TunisiaMallWeb.Controllers
 {
     public class StoreController : Controller
     {
 
-        StoreService s = new StoreService(); 
+        IStoreService s = new StoreService();
 
 
         // GET: Store
+        [Route("Store/ListStore")]
         public ActionResult ListStore()
         {
            
-            IEnumerable<store> stores = s.GetAllStores();
+           
+            IEnumerable<store> st = s.GetMany();
+            List<store> stores = st.ToList();
+            
+          
             return View(stores);
            
         }
@@ -28,10 +35,11 @@ namespace TunisiaMallWeb.Controllers
         public ActionResult ListStoreByCategory(string categoryName)
         {
             
-           IEnumerable<store> stores = s.GetStoreByCategory(categoryName);
+           IEnumerable<store> stores = s.GetMany(x=> x.category.libelle.Equals(categoryName));
+            List<store> storesss = stores.ToList();
       
          
-            return View(stores);
+            return View(storesss);
 
         }
 
@@ -39,7 +47,7 @@ namespace TunisiaMallWeb.Controllers
         [Route("DetailStore/{id}")]
         public ActionResult DetailStore(long id)
         {
-            store st = s.GetStore(2L);
+            store st = s.FindById(id);
             return View(st);
         }
 
@@ -57,8 +65,41 @@ namespace TunisiaMallWeb.Controllers
         public ActionResult ListStoreBySubCategory(string name)
         {
             IEnumerable<store> st = s.GetStoreBySubCategory(name);
-            return View(st);
+            List<store> stores = st.ToList();
+            return View(stores);
         }
+
+
+
+
+        // GET
+        [Route("ListPromotionnelStore")]
+        public ActionResult ListPromotionnelStore()
+        {
+
+            IEnumerable<store> stores = s.GetStoreByPromotionProduct();
+            List<store> storesss = stores.ToList();
+
+
+            return View(storesss);
+
+        }
+        // GET
+        [Route("GetProductByPromotionStore/{id}")]
+        public ActionResult GetProductByPromotionStore(int id)
+        {
+
+            IEnumerable<product> stores = s.GetProductByPromotionStore(id);
+            List<product> storesss = stores.ToList();
+
+
+            return View(storesss);
+
+        }
+
+
+
+
 
         // GET: Store/Create
         public ActionResult Create()

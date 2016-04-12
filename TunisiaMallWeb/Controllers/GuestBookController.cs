@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service;
 
@@ -11,62 +12,81 @@ namespace TunisiaMallWeb.Controllers
     public class GuestBookController : Controller
     {
 
-        GuestBookService g = new GuestBookService();
+        IGuestBookService g = new GuestBookService();
 
 
-        // GET: GuestBook
-        public ActionResult Index()
+        // GET: 
+        [Route("GetAllEntries")]
+        public ActionResult GetAllEntries()
         {
-            return View();
+            IEnumerable<gestbookentry> guestbooklist = g.GetMany();
+            List<gestbookentry> guestbooklistfinal = guestbooklist.ToList();
+            return View(guestbooklistfinal);
         }
 
-        // GET: GuestBook/Details/5
-        public ActionResult Details(int id)
+        // GET: 
+        [Route("DetailsEntry")]
+        public ActionResult DetailsEntry(int id)
         {
-            return View();
+            gestbookentry guest = g.FindById(id);
+
+            return View(guest);
+
         }
 
         // GET: GuestBook/Create
+        [HttpGet]
         [Route("CreateGuestBookEntry")]
-        public ActionResult CreateTest()
+        public ActionResult CreateGuestBookEntry()
         {
-           
-            return View();
+            gestbookentry gestbookE = new gestbookentry();
+
+            // string userId = Membership.GetUser().ProviderUserKey.ToString();
+            gestbookE.user_idUser = 2;
+
+            return View(gestbookE);
         }
 
-        // POST: GuestBook/Create
-        
-        [HttpPost]
-       
-        public ActionResult CreateGuestBookEntry(FormCollection collection, gestbookentry entry)
-        {
-            try
-            {
-               
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+        [HttpPost]
+        [Route("CreateGuestBookEntry")]
+        public ActionResult CreateGuestBookEntry(gestbookentry entry)
+        {
+            g.Create(entry);
+            g.Commit();
+            return Redirect("GetAllEntries");
+
         }
 
         // GET: GuestBook/Edit/5
-        public ActionResult Edit(int id)
+        [HttpGet]
+        [Route("EditGuestBookEntry")]
+        public ActionResult EditEntry(long id = -1)
         {
-            return View();
+            gestbookentry guest = g.FindById(id);
+
+            if (guest == null)
+            {
+                return HttpNotFound();
+            }
+            return View(guest);
         }
 
         // POST: GuestBook/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [Route("EditGuestBookEntry")]
+        public ActionResult EditEntry(int id, gestbookentry guest)
         {
             try
             {
-                // TODO: Add update logic here
+                var dbguest = g.FindById(id);
+                dbguest.rating = guest.rating;
+                dbguest.text = guest.text;
+                g.Update(dbguest);
+                g.Commit();
 
-                return RedirectToAction("Index");
+                return Redirect("GetAllEntries");
+
             }
             catch
             {
@@ -74,26 +94,46 @@ namespace TunisiaMallWeb.Controllers
             }
         }
 
-        // GET: GuestBook/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        [Route("DeleteEntry")]
+        public ActionResult DeleteEntry(int id)
         {
-            return View();
+            gestbookentry e = g.FindById(id);
+            return View(e);
         }
 
         // POST: GuestBook/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [Route("DeleteEntry")]
+        public ActionResult DeleteEntry(int id, gestbookentry guest)
         {
             try
             {
-                // TODO: Add delete logic here
+                gestbookentry gg = g.FindById(id);
+                g.Delete(gg);
+                g.Commit();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("GetAllEntries");
             }
             catch
             {
                 return View();
             }
         }
+
+
+        // POST: GuestBook/Edit/5
+        [HttpGet]
+        [Route("FindGuestBookEntry/{keyword}")]
+        public ActionResult FindEntry(string keyword)
+        {
+
+               IEnumerable<gestbookentry> listfind= g.GetGuestBookEntryByKeyword(keyword);
+                List<gestbookentry> listguest = listfind.ToList();
+            return View(listguest);
+
+        }
+
+
     }
 }

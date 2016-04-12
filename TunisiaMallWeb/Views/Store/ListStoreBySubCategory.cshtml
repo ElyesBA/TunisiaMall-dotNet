@@ -4,16 +4,12 @@
     ViewBag.Title = "ListStoreBySubCategory";
 }
 
-<h2>ListStoreBySubCategory</h2>
+<h2>List Stores By SubCategory</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idStroe)
-        </th>
+       
         <th>
             @Html.DisplayNameFor(model => model.description)
         </th>
@@ -30,19 +26,15 @@
             @Html.DisplayNameFor(model => model.tel)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.category_fk)
+            @Html.Display("Category")
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idUser)
-        </th>
+       
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idStroe)
-        </td>
+      
         <td>
             @Html.DisplayFor(modelItem => item.description)
         </td>
@@ -59,17 +51,18 @@
             @Html.DisplayFor(modelItem => item.tel)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.category_fk)
+            @Html.DisplayFor(modelItem => item.category.libelle)
         </td>
+       
         <td>
-            @Html.DisplayFor(modelItem => item.idUser)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+           @Html.ActionLink("Details", "DetailStore", new { id = item.idStroe }) 
         </td>
     </tr>
 }
 
 </table>
+
+<p>
+
+    @Html.ActionLink("Back to List", "ListStore")
+</p>
