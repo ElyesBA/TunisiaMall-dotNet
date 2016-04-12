@@ -27,7 +27,7 @@ namespace TunisiaMall.Service.Pattern
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

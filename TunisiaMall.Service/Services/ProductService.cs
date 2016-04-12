@@ -16,5 +16,17 @@ namespace TunisiaMall.Service.Services
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
         // Methods
         public ProductService() : base(work){ }
+
+        public IEnumerable<product> getAll()
+        {
+            return GetMany();
+        }
+
+        public product getProdByID(int id)
+        {
+            return FindById(id);
+        }
     }
+
 }
+
