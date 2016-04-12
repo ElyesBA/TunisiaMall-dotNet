@@ -14,20 +14,20 @@ namespace TunisiaMall.Service.Services
         private static IDatabaseFactory dbFactory = new DatabaseFactory();
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
         public OrderService() : base(work){ }
-        public void addProductToCart(product p)
-        {
 
+        public void addProductToOrder(product p, int idOrder)
+        {
         }
 
         public void createOrder(order o)
         {
-            Create(o);
+            work.getRepository<order>().Create(o);
             work.Commit();
         }
 
         public void editOrder(order o)
         {
-            Update(o);
+            work.getRepository<order>().Update(o);
             work.Commit();
         }
         // the method getOrdersByCustomer allows you to return 
@@ -85,8 +85,8 @@ namespace TunisiaMall.Service.Services
 
         public void removeOrder(order o)
         {
-            o = FindById(o.idOrder);
-            Delete(o);
+            o = work.getRepository<order>().FindById(o.idOrder);
+            work.getRepository<order>().Delete(o);
             work.Commit();
         }
 
@@ -97,7 +97,7 @@ namespace TunisiaMall.Service.Services
         {
             order existingOrder = new order();
             // try to find if the order allready exist
-            existingOrder = FindById(o.idOrder);
+            existingOrder = work.getRepository<order>().FindById(o.idOrder);
             //if the order exists
             if (existingOrder != null)
             {

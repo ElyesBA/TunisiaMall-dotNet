@@ -14,7 +14,7 @@ namespace TunisiaMall.Service.Services
         void saveAsUnpaiedOrderOrUnpaid(order o, int status);
         void editOrder(order o);
         IEnumerable<customerOrders> getOrdersByCustomer(customer c = null);
-        void addProductToCart(product p);
+        void addProductToOrder(product p,int idOrder);
     }
  
 }

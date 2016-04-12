@@ -12,48 +12,61 @@ namespace TunisiaMallWeb.Controllers
     public class OrderController : Controller
     {
         // GET: Order
-        public void Index()
+        public ActionResult Index()
         {
-            customer u = new customer { idUser = 1 };
-            // order o = new order { idUser = u.idUser, orderStatus = "pending", cardHolder = "dali" };
-            order o = new order { idOrder = 4 };
-            order o2 = new order { idOrder = 5 };
-            order o3 = new order { idOrder = 10, idUser = 1 };
             OrderService os = new OrderService();
-            // os.removeOrder(o);
-            os.saveAsUnpaiedOrderOrUnpaid(o2, 1);
-            os.saveAsUnpaiedOrderOrUnpaid(o3, 0);
-            os.createOrder(o);
-            os.getOrdersByCustomer(u);
-            OrderLineService ols = new OrderLineService();
-            product p = new product { idProduct = 1 };
-            orderline ol6 = new orderline { idProduct_fk = p.idProduct, idOrder_fk = o2.idOrder, qte = 1 };
-            //ok
-            ols.addProductTOorder(ol6);
-            ols.getOrderLinesByOrder(o2);
-            ols.getTotalOrder(o2);
-            ShoppingCartActions sc = new ShoppingCartActions();
-            orderline ol = new orderline { idProduct_fk = 4, qte = 10 };
-            orderline ol1 = new orderline { idProduct_fk = 4, qte = 30 };
-            orderline ol2 = new orderline { idProduct_fk = 6, qte = 2 };
-            sc.addToCart(ol);
-
-            sc.addToCart(ol1);
-            sc.addToCart(ol2);
-
-            List<orderline> lis = sc.getCurrentSessionOrderLines();
-            foreach (var item in lis)
+            ShoppingCartActions us = new ShoppingCartActions();
+            customer customer = new customer { idUser = us.getCurrentUserID() };
+            List<order> orders = new List<order>();
+            foreach (var item in os.getOrdersByCustomer(customer))
             {
-                System.Diagnostics.Debug.WriteLine("order line in session " + item.idProduct_fk + " order " + item.idOrder_fk + "qte " + item.qte);
+                if (item.idu == customer.idUser) { 
+                     orders=item.orders;
+                     }
             }
-            sc.removeFromCart((int)ol.idProduct_fk);
-            foreach (var item in lis)
-            {
-                System.Diagnostics.Debug.WriteLine("order line in after supression session " + item.idProduct_fk + " order " + item.idOrder_fk + "qte " + item.qte);
-            }
-            Console.Beep();
+            return View(orders);
         }
+        //{
+        //    customer u = new customer { idUser = 1 };
+        //    // order o = new order { idUser = u.idUser, orderStatus = "pending", cardHolder = "dali" };
+        //    order o = new order { idOrder = 4 };
+        //    order o2 = new order { idOrder = 5 };
+        //    order o3 = new order { idOrder = 10, idUser = 1 };
+        //    OrderService os = new OrderService();
+        //    // os.removeOrder(o);
+        //    os.saveAsUnpaiedOrderOrUnpaid(o2, 1);
+        //    os.saveAsUnpaiedOrderOrUnpaid(o3, 0);
+        //    os.createOrder(o);
+        //    os.getOrdersByCustomer(u);
+        //    OrderLineService ols = new OrderLineService();
+        //    product p = new product { idProduct = 1 };
+        //    orderline ol6 = new orderline { idProduct_fk = p.idProduct, idOrder_fk = o2.idOrder, qte = 1 };
+        //    //ok
+        //    ols.addProductTOorder(ol6);
+        //    ols.getOrderLinesByOrder(o2);
+        //    ols.getTotalOrder(o2);
+        //    ShoppingCartActions sc = new ShoppingCartActions();
+        //    orderline ol = new orderline { idProduct_fk = 4, qte = 10 };
+        //    orderline ol1 = new orderline { idProduct_fk = 4, qte = 30 };
+        //    orderline ol2 = new orderline { idProduct_fk = 6, qte = 2 };
+        //    sc.addToCart(ol);
 
+        //    sc.addToCart(ol1);
+        //    sc.addToCart(ol2);
+
+        //    List<orderline> lis = sc.getCurrentSessionOrderLines();
+        //    foreach (var item in lis)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine("order line in session " + item.idProduct_fk + " order " + item.idOrder_fk + "qte " + item.qte);
+        //    }
+        //    sc.removeFromCart((int)ol.idProduct_fk);
+        //    foreach (var item in lis)
+        //    {
+        //        System.Diagnostics.Debug.WriteLine("order line in after supression session " + item.idProduct_fk + " order " + item.idOrder_fk + "qte " + item.qte);
+        //    }
+        //    Console.Beep();
+       
+ 
 
         // GET: Order/Details/5
         public ActionResult Details(int id)

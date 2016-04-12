@@ -218,6 +218,7 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PointsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -226,6 +227,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -538,11 +540,13 @@
     <Content Include="Views\Store\ListStoreByCategory.cshtml" />
     <Content Include="Views\Store\ListStoreBySubCategory.cshtml" />
     <Content Include="Views\Shared\_MainTemplate.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Message\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\Points\" />
   </ItemGroup>
   <ItemGroup>

@@ -8,12 +8,8 @@ using TunisiaMall.Service.Pattern;
 
 namespace TunisiaMall.Service.Services
 {
-    public interface IProductService : IService<product>
+    public interface IPromotionService: IService<promotion>
     {
-        IEnumerable<product> getAll();
-        product getProdByID(int id);
-        IEnumerable<product> findByLibelle(string lib);
-
-        
+        promotion getPromotionByID(long id); 
     }
 }

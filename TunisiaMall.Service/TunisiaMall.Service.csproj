@@ -56,6 +56,7 @@
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IEventService.cs" />
     <Compile Include="Services\ICategoryService.cs" />
+    <Compile Include="Services\IPromotionService.cs" />
     <Compile Include="Services\OrderLineService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Services\PointsService.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Services\IMessageService.cs" />
     <Compile Include="Services\IPostService.cs" />
     <Compile Include="Services\IUserService.cs" />
+    <Compile Include="Services\PromotionService.cs" />
     <Compile Include="Services\StoreService.cs" />
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\MessageService.cs" />

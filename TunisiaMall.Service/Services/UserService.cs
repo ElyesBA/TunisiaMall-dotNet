@@ -16,5 +16,12 @@ namespace TunisiaMall.Service.Services
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
         // Methods
         public UserService() : base(work){ }
+
+        public int getUserIdByUsername(string name)
+        {
+            // return work.getRepository<user>().GetMany(u => u.login == name).First().idUser ;
+            return 1;
+        }
+
     }
 }
