@@ -53,6 +53,7 @@
     <Compile Include="Services\IProductService.cs" />
     <Compile Include="Services\IEventService.cs" />
     <Compile Include="Services\ICategoryService.cs" />
+    <Compile Include="Services\ITopicService.cs" />
     <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\GuestBookService.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Services\PostService.cs" />
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\CommentService.cs" />
+    <Compile Include="Services\TopicService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

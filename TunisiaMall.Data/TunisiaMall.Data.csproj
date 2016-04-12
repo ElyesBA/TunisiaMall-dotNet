@@ -71,9 +71,9 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
-    <Compile Include="Migrations\201604101102211_init.cs" />
-    <Compile Include="Migrations\201604101102211_init.Designer.cs">
-      <DependentUpon>201604101102211_init.cs</DependentUpon>
+    <Compile Include="Migrations\201604121711463_init.cs" />
+    <Compile Include="Migrations\201604121711463_init.Designer.cs">
+      <DependentUpon>201604121711463_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Mapping\categoryMap.cs" />
@@ -87,6 +87,7 @@
     <Compile Include="Models\Mapping\mvtstockMap.cs" />
     <Compile Include="Models\Mapping\orderlineMap.cs" />
     <Compile Include="Models\Mapping\orderMap.cs" />
+    <Compile Include="Models\Mapping\topicMap.cs" />
     <Compile Include="Models\Mapping\postMap.cs" />
     <Compile Include="Models\Mapping\productMap.cs" />
     <Compile Include="Models\Mapping\promotionMap.cs" />
@@ -112,8 +113,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604101102211_init.resx">
-      <DependentUpon>201604101102211_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201604121711463_init.resx">
+      <DependentUpon>201604121711463_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

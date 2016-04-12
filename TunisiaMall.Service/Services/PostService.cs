@@ -16,5 +16,28 @@ namespace TunisiaMall.Service.Services
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
         // Methods
         public PostService() : base(work){ }
+
+        public IEnumerable<post> GetPostByTopic(int idTopic)
+        {
+            return GetMany(p => p.idTopic == idTopic);
+        }
+        public post GetPostByTitle(string Title)
+        {
+            return GetMany(p => p.title == Title).First();
+        }
+        public IEnumerable<post> GetAllPost()
+        {
+            return work.getRepository<post>().GetMany();
+        }
+        
+        public IEnumerable<post> GetPostByDate(DateTime Date)
+        {
+            return GetMany(p => p.postDate == Date);
+        }
+        
+        public post GetPost(int id)
+        {
+            return work.getRepository<post>().FindById(id);
+        }
     }
 }

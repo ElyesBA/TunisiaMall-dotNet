@@ -16,7 +16,10 @@ namespace TunisiaMall.Domain.Entities
         public Nullable<int> rating { get; set; }
         public DateTime postDate { get; set; }
         public int idUser { get; set; }
+        public int idTopic { get; set; }
+
         public virtual ICollection<comment> comments { get; set; }
         public virtual user user { get; set; }
+        public virtual topic topic { get; set; }
     }
 }

@@ -78,6 +78,7 @@
     <Compile Include="Entities\store.cs" />
     <Compile Include="Entities\subcategory.cs" />
     <Compile Include="Entities\subscription.cs" />
+    <Compile Include="Entities\topic.cs" />
     <Compile Include="Entities\user.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
