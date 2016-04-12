@@ -10,7 +10,7 @@ namespace TunisiaMall.Data.Infrastructure
     public class DatabaseFactory : Disposable, IDatabaseFactory
     {
         // Attributes
-        private tunisiamallContext dataContext;
+        private static tunisiamallContext dataContext = null;
         public tunisiamallContext DataContext
         {
             get
@@ -21,7 +21,10 @@ namespace TunisiaMall.Data.Infrastructure
         // Methods
         public DatabaseFactory()
         {
-            dataContext = new tunisiamallContext();
+            if (dataContext == null)
+            {
+                dataContext = new tunisiamallContext();
+            }
         }
         protected override void DisposeCore()
         {

@@ -10,6 +10,8 @@ namespace TunisiaMall.Service.Services
 {
     public interface IMessageService : IService<message>
     {
-
+        List<message> getMessagesForUser(int idUser);
+        List<message> getConversation(int idUser1, int idUser2);
+        void sendMessage(int idSender, int idReceiver, string text);
     }
 }

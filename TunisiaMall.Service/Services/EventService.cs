@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TunisiaMall.Data.Infrastructure;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Pattern;
+using System.Web;
 
 namespace TunisiaMall.Service.Services
 {
@@ -15,6 +16,6 @@ namespace TunisiaMall.Service.Services
         private static IDatabaseFactory dbFactory = new DatabaseFactory();
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
         // Methods
-        public EventService() : base(work){ }
+        public EventService() : base(work){ }   
     }
 }
