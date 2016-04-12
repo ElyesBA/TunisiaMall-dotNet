@@ -8,8 +8,8 @@ using TunisiaMall.Service.Pattern;
 
 namespace TunisiaMall.Service.Services
 {
-    public interface IPostService : IService<post>
+    public interface       ITopicService : IService<topic>
     {
-         post GetPostByTitle(string x);
+
     }
 }

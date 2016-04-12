@@ -25,11 +25,15 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.rating).HasColumnName("rating");
             this.Property(t => t.postDate).HasColumnName("postDate");
             this.Property(t => t.idUser).HasColumnName("idUser");
+            this.Property(t => t.idTopic).HasColumnName("idTopic");
 
             // Relationships
             this.HasRequired(t => t.user)
                 .WithMany(t => t.posts)
                 .HasForeignKey(d => d.idUser);
+            this.HasRequired(p => p.topic)
+                .WithMany(t => t.posts)
+                .HasForeignKey(d => d.idTopic);
 
         }
     }

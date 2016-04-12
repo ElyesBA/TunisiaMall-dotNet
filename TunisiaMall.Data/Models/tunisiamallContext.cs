@@ -36,6 +36,7 @@ namespace TunisiaMall.Data.Models
         public DbSet<subcategory> subcategories { get; set; }
         public DbSet<subscription> subscriptions { get; set; }
         public DbSet<user> users { get; set; }
+        public DbSet<topic> topics { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -59,7 +60,7 @@ namespace TunisiaMall.Data.Models
             modelBuilder.Configurations.Add(new subcategoryMap());
             modelBuilder.Configurations.Add(new subscriptionMap());
             modelBuilder.Configurations.Add(new userMap());
-            
+            modelBuilder.Configurations.Add(new topicMap());
         }
     }
 }
