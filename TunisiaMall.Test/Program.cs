@@ -18,18 +18,14 @@ namespace TunisiaMall.Test
             IUnitOfWork work = new UnitOfWork(dbFactory);
             // Services
             IMessageService messageService = new MessageService();
-            IUserService userService = new UserService();
 
-            List<message> ls = messageService.getMessagesForUser(1);
+            /*List<message> ls = messageService.getMessagesForUser(1);
             Console.WriteLine(ls.Count());
             foreach(var m in ls)
             {
                 Console.WriteLine("{0} {1}",m.idMessage, m.text);
-            }
-            /*user u1 = new user { login = "user1", password = "user1"};
-            userService.Create(u1);
-            userService.Commit();*/
-
+            }*/
+            //Console.WriteLine(userService.Athenticate("user1","esprit"));
             Console.ReadKey();
         }
     }

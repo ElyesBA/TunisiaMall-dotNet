@@ -10,6 +10,6 @@ namespace TunisiaMall.Service.Services
 {
     public interface IUserService : IService<user>
     {
-
+        bool Athenticate(string username, string password);
     }
 }

@@ -16,5 +16,15 @@ namespace TunisiaMall.Service.Services
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
         // Methods
         public UserService() : base(work){ }
+
+        public bool Athenticate(string username, string password)
+        {
+            var user = GetMany(u => u.login == username && u.password == password);
+            if (user.Count() == 1)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }
