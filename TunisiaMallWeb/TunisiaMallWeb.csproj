@@ -572,6 +572,7 @@
     <Content Include="Views\Topic\Index.cshtml" />
     <Content Include="Views\Message\Discussion.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Shared\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

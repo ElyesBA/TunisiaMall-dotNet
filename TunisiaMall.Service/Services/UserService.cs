@@ -9,7 +9,7 @@ using TunisiaMall.Service.Pattern;
 
 namespace TunisiaMall.Service.Services
 {
-    public class UserService : Service<user> , IUserService
+    public class UserService : Service<user> , IUserService, IDisposable
     {
         // Attributes
         private static IDatabaseFactory dbFactory = new DatabaseFactory();
