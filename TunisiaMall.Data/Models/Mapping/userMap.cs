@@ -46,6 +46,7 @@ namespace TunisiaMall.Data.Models.Mapping
 
 
 
+
             // Table & Column Mappings
             ToTable("user");
             this.Property(t => t.idUser).HasColumnName("idUser");
