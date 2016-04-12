@@ -535,10 +535,11 @@
     <Content Include="Views\Store\ListStoreByCategory.cshtml" />
     <Content Include="Views\Store\ListStoreBySubCategory.cshtml" />
     <Content Include="Views\Shared\_MainTemplate.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\Discussion.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

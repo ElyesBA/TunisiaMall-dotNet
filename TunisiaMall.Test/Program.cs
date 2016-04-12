@@ -20,7 +20,7 @@ namespace TunisiaMall.Test
             IMessageService messageService = new MessageService();
             IUserService userService = new UserService();
 
-            List<message> ls = messageService.getMessagesForUser(4);
+            List<message> ls = messageService.getMessagesForUser(1);
             Console.WriteLine(ls.Count());
             foreach(var m in ls)
             {

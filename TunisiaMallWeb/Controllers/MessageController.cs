@@ -11,18 +11,29 @@ namespace TunisiaMallWeb.Controllers
     public class MessageController : Controller
     {
         private IMessageService messageService = new MessageService();
-        private static int idUser = 1;
+        private static int idCurrentUser = 1;
         // GET: Message
+        [Route("Inbox")]
         public ActionResult Index()
         {
-            List<message> listMessages = messageService.getMessagesForUser(idUser);
+            List<message> listMessages = messageService.getMessagesForUser(idCurrentUser);
             return View(listMessages);
         }
 
         // GET: Message/Read/5
-        public ActionResult Read(int id)
+        [Route("Inbox/{idUser}")]
+        public ActionResult Discussion(int idUser)
         {
-            return View();
+            List<message> messagesList = messageService.getConversation(idCurrentUser, idUser);
+            if (messagesList.Count > 0)
+            {
+                ViewBag.idReceiver = idUser;
+                return View(messagesList);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
         // GET: Message/Send
@@ -35,38 +46,19 @@ namespace TunisiaMallWeb.Controllers
         [HttpPost]
         public ActionResult Send(FormCollection collection)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Message/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
+            int idUser = int.Parse(collection["idUser"]);
+            string text = collection["messageText"];
+            messageService.sendMessage(idCurrentUser, idUser, text);
+            return RedirectToAction("Discussion", new { idUser = idUser });
         }
 
         // POST: Message/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [Route("Message/Delete/{idUser}")]
+        public ActionResult Delete(int idUser)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            messageService.deleteConversation(idCurrentUser, idUser);
+            return RedirectToAction("Index");
         }
     }
 }

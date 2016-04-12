@@ -23,6 +23,22 @@
     <link rel="stylesheet" href="@Url.Content("~/Content/css/main.css")">
     <link rel="stylesheet" href="@Url.Content("~/Content/css/main-responsive.css")">
     <link id="primary_color_scheme" rel="stylesheet" href="@Url.Content("~/Content/css/theme_meadow.css")">
+    <style>
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
+        }
+    </style>
     <script src="@Url.Content("~/Content/js/Vendor/modernizr.js")"></script>
     <noscript>
         <link rel="stylesheet" href="@Url.Content("~/Content/css/styleNoJs.css")">
@@ -57,7 +73,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right service-nav">
                         <li>
-                            <a id="dropdownMenuLogin" href="#" data-toggle="dropdown" class="upper dropdown-toggle">Login</a>
+                            <a id="dropdownMenuLogin" href="#" data-toggle="dropdown" class="upper dropdown-toggle"><i class="fa fa-sign-in fa-lg"></i> Login</a>
                             <div aria-labelledby="dropdownMenuLogin" class="dropdown-menu widget-box">
                                 <form>
                                     <div class="form-group">
@@ -78,6 +94,9 @@
                                     </div><a href="#"><small>Lost your Password?</small></a>
                                 </form>
                             </div>
+                        </li>
+                        <li>
+                            <a id="InboxMenu" href="@Url.Action("Index", "Message")" ><i class="fa fa-inbox fa-lg"></i> Inbox</a>
                         </li>
                         <li>
                             <a id="dropdownMenuCart" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;<span class="badge">2</span></a>
@@ -105,7 +124,7 @@
                     <ul class="nav yamm navbar-nav navbar-left main-nav">
                         <!-- istanzio un id univoco-->
                         <li class="dropdown">
-                            <a href="#" title="Home" data-toggle="dropdown" data-hover="dropdown" id="menu_item_Home" data-ref="#" class="dropdown-toggle">Home</a>
+                            <a href="@Url.Action("Index", "Home")" title="Home" id="menu_item_Home">Home</a>
                         </li>
                         <!-- istanzio un id univoco-->
                         <li class="dropdown yamm-fw">
@@ -382,12 +401,12 @@
                             <div class="widget sep-top-lg">
                                 <h6 class="upper widget-title">Flickr Photostream</h6>
                                 <div class="flickr_container sep-top-xs">
-                                    <div id="flickr_badge_image1" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14983708011/"><img width="75" height="75" title="Collis does the ice bucket challenge" alt="Una foto su Flickr" src="http://farm4.staticflickr.com/3923/14983708011_6bcbba0e2c_s.jpg")"></a></div>
-                                    <div id="flickr_badge_image2" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14596923138/"><img width="75" height="75" title="Justin 05" alt="Una foto su Flickr" src="http://farm6.staticflickr.com/5555/14596923138_d4d46d271c_s.jpg")"></a></div>
-                                    <div id="flickr_badge_image3" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14760569666/"><img width="75" height="75" title="Justin 04" alt="Una foto su Flickr" src="http://farm4.staticflickr.com/3909/14760569666_7c6c02da27_s.jpg")"></a></div>
-                                    <div id="flickr_badge_image4" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14783568265/"><img width="75" height="75" title="Justin 03" alt="Una foto su Flickr" src="http://farm6.staticflickr.com/5590/14783568265_90657d440f_s.jpg")"></a></div>
-                                    <div id="flickr_badge_image5" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14781214704/"><img width="75" height="75" title="Justin 01" alt="Una foto su Flickr" src="http://farm3.staticflickr.com/2925/14781214704_955df76638_s.jpg")"></a></div>
-                                    <div id="flickr_badge_image6" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14471910420/"><img width="75" height="75" title="Envato Live" alt="Una foto su Flickr" src="http://farm6.staticflickr.com/5548/14471910420_cf12dd0a16_s.jpg")"></a></div>
+                                    <div id="flickr_badge_image1" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14983708011/"><img width="75" height="75" title="Collis does the ice bucket challenge" alt="Una foto su Flickr" src="http://farm4.staticflickr.com/3923/14983708011_6bcbba0e2c_s.jpg" )"></a></div>
+                                    <div id="flickr_badge_image2" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14596923138/"><img width="75" height="75" title="Justin 05" alt="Una foto su Flickr" src="http://farm6.staticflickr.com/5555/14596923138_d4d46d271c_s.jpg" )"></a></div>
+                                    <div id="flickr_badge_image3" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14760569666/"><img width="75" height="75" title="Justin 04" alt="Una foto su Flickr" src="http://farm4.staticflickr.com/3909/14760569666_7c6c02da27_s.jpg" )"></a></div>
+                                    <div id="flickr_badge_image4" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14783568265/"><img width="75" height="75" title="Justin 03" alt="Una foto su Flickr" src="http://farm6.staticflickr.com/5590/14783568265_90657d440f_s.jpg" )"></a></div>
+                                    <div id="flickr_badge_image5" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14781214704/"><img width="75" height="75" title="Justin 01" alt="Una foto su Flickr" src="http://farm3.staticflickr.com/2925/14781214704_955df76638_s.jpg" )"></a></div>
+                                    <div id="flickr_badge_image6" class="flickr_badge_image"><a href="http://www.flickr.com/photos/we-are-envato/14471910420/"><img width="75" height="75" title="Envato Live" alt="Una foto su Flickr" src="http://farm6.staticflickr.com/5548/14471910420_cf12dd0a16_s.jpg" )"></a></div>
                                 </div>
                             </div>
                         </div>
@@ -436,12 +455,14 @@
     <script src="@Url.Content("~/Content/js/circle_diagram.js")"></script>
     <script src="@Url.Content("~/Content/js/main.js")"></script>
     <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'XX-XXXXXXXX-XX', 'auto');
-      ga('send', 'pageview');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'XX-XXXXXXXX-XX', 'auto');
+        ga('send', 'pageview');
     </script>
 </body>
 </html>

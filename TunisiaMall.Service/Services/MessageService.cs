@@ -28,7 +28,7 @@ namespace TunisiaMall.Service.Services
             user u = userService.FindById(idUser);
             var l = u.recivedMessages.GroupBy(m => m.sender);
             List<message> result = new List<message>();
-            foreach(var item in l)
+            foreach (var item in l)
             {
                 result.Add(item.Last());
             }
@@ -46,6 +46,16 @@ namespace TunisiaMall.Service.Services
             m.sender = sender;
             m.reciver = receiver;
             this.Create(m);
+            this.Commit();
+        }
+
+        public void deleteConversation(int idUser1, int idUser2)
+        {
+            List<message> messagesList = this.getConversation(idUser1, idUser2);
+            foreach (var item in messagesList)
+            {
+                this.Delete(item);
+            }
             this.Commit();
         }
     }
