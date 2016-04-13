@@ -22,10 +22,10 @@ namespace TunisiaMallWeb.Controllers
             //return View();
             // test  method //  OK
             //ps.getBestClient(2);
-            order o = new order { idUser = u.idUser, orderStatus = "pending", cardHolder = "dali" };
-            OrderService os = new OrderService();
-            os.createOrder(o);
-            Console.Beep();
+            //order o = new order { idUser = u.idUser, orderStatus = "pending", cardHolder = "dali" };
+           // OrderService os = new OrderService();
+            //os.createOrder(o);
+            //Console.Beep();
 
         }
 

@@ -13,6 +13,7 @@ namespace TunisiaMallWeb.Controllers
     public class ProductController : Controller
     {
         ProductService ps = new ProductService();
+        OrderService os = new OrderService();
         // GET: Product
         public ActionResult Index()
         {
@@ -25,7 +26,8 @@ namespace TunisiaMallWeb.Controllers
             return View(ps.findByLibelle(searchString));
         }
 
-        public void AddToCart(int id)
+
+        public ActionResult AddToCart(int id)
         {
             ShoppingCartActions shopping = new ShoppingCartActions();
             orderline or = new orderline { idProduct_fk = id, qte = 1 };
@@ -34,6 +36,7 @@ namespace TunisiaMallWeb.Controllers
             {
                 System.Diagnostics.Debug.WriteLine(" order lines"+item.idProduct_fk + "  "+item.qte);
             }
+            return RedirectToAction("Index");
 
         }
         // GET: Product/Details/5
@@ -43,28 +46,7 @@ namespace TunisiaMallWeb.Controllers
             return View(ps.FindById(id));
         }
 
-        // GET: Product/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Product/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+    
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {

@@ -13,16 +13,24 @@ namespace TunisiaMall.Service.Services
     { 
         private static IDatabaseFactory dbFactory = new DatabaseFactory();
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
+        PointsService ps = new PointsService();
+        UserService us = new UserService();
         public OrderService() : base(work){ }
 
-        public void addProductToOrder(product p, int idOrder)
-        {
-        }
+   
 
-        public void createOrder(order o)
+        public int createOrder(order o)
         {
             work.getRepository<order>().Create(o);
             work.Commit();
+            ps.addPointsToCustomer((customer)us.FindById((long)o.idUser)
+                , (int)o.amountPayed/10);
+            return finOrderByDate();
+        }
+        public int finOrderByDate()
+        {
+            return work.getRepository<order>().GetMany().Max(t=>t.idOrder) ;
+
         }
 
         public void editOrder(order o)
@@ -85,6 +93,9 @@ namespace TunisiaMall.Service.Services
 
         public void removeOrder(order o)
         {
+            OrderLineService ords = new OrderLineService();
+
+            ords.deleteOrderLinesByOrder(o.idOrder);
             o = work.getRepository<order>().FindById(o.idOrder);
             work.getRepository<order>().Delete(o);
             work.Commit();

@@ -12,6 +12,7 @@ namespace TunisiaMallWeb.Logic
         public static List<orderline> globalList = new List<orderline>();
         public string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
+        ProductService ps = new ProductService();
         public string sessionID;
         public int getCurrentUserID()
         {
@@ -65,8 +66,22 @@ namespace TunisiaMallWeb.Logic
         }
         //this method deletes a orderline depending on the product id of the orderline
         //if the method don't get a parameter the method deletes all the orderlines of the current cart
-
+        public double getTotalCurrentCart()
+        {
+            double total = 0;
+            List<orderline> liste=getCurrentSessionOrderLines();
+            if (liste != null)
+            {
+                foreach (var item in liste)
+                {
+                   total=total+ ps.getProdByID((int)item.idProduct_fk).sellPrice*item.qte;
+                }
+            }
+            System.Diagnostics.Debug.WriteLine(" total" + total);
+            return total;
+        }
             
+        //the method deletes everything from the list if nothing passed
         public void removeFromCart(int idprod = 0)
         {
             if (idprod != 0)
