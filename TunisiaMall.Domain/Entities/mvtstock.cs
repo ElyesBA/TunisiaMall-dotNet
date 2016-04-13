@@ -12,6 +12,6 @@ namespace TunisiaMall.Domain.Entities
         public int qte { get; set; }
         public int supplier { get; set; }
         public Nullable<int> idProduct { get; set; }
-        public virtual product product { get; set; }
+        public product product { get; set; }
     }
 }

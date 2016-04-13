@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TunisiaMall.Service.Services;
 using TunisiaMall.Domain.Entities;
+using TunisiaMallWeb.Logic;
 
 namespace TunisiaMallWeb.Controllers
 {
@@ -12,8 +13,6 @@ namespace TunisiaMallWeb.Controllers
     {
         CommentService c = new CommentService();
         PostService p = new PostService();
-        UserService u = new UserService();
-        static int currentUserID = 2;
         // GET: Comment
         public ActionResult Index(int idPost)
         {
@@ -33,11 +32,10 @@ namespace TunisiaMallWeb.Controllers
         {
             comment c1 = new comment();
             post p1 = p.FindById(idPost);
-            user u1 = u.FindById(currentUserID);
             c1.post = p1;
             c1.text = text;
             c1.commentDate = DateTime.Now;
-            c1.user = u1;
+            c1.user = CurrentUser.get();
             c.Create(c1);
             c.Commit();
             return RedirectToAction("DetailPost", "Post", new { id = c1.idPost });

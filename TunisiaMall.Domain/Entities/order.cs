@@ -18,7 +18,7 @@ namespace TunisiaMall.Domain.Entities
         public string orderStatus { get; set; }
         public string statusPayment { get; set; }
         public Nullable<int> idUser { get; set; }
-        public virtual ICollection<orderline> orderlines { get; set; }
-        public virtual user user { get; set; }
+        public ICollection<orderline> orderlines { get; set; }
+        public user user { get; set; }
     }
 }

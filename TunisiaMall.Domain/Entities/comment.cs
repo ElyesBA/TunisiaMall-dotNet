@@ -10,7 +10,7 @@ namespace TunisiaMall.Domain.Entities
         public string text { get; set; }
         public int idPost { get; set; }
         public int idUser { get; set; }
-        public virtual post post { get; set; }
-        public virtual user user { get; set; }
+        public post post { get; set; }
+        public user user { get; set; }
     }
 }

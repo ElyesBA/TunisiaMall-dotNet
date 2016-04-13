@@ -18,8 +18,8 @@ namespace TunisiaMall.Domain.Entities
         public int idUser { get; set; }
         public int idTopic { get; set; }
 
-        public virtual ICollection<comment> comments { get; set; }
-        public virtual user user { get; set; }
-        public virtual topic topic { get; set; }
+        public ICollection<comment> comments { get; set; }
+        public user user { get; set; }
+        public topic topic { get; set; }
     }
 }

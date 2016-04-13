@@ -12,6 +12,9 @@
 else
 {
     <li>
+        <a id="InboxMenu" href="@Url.Action("UserCreate", "User")"><i class="fa fa-inbox fa-lg"></i> Sign Up</a>
+    </li>
+    <li>
         <a id="dropdownMenuLogin" href="#" data-toggle="dropdown" class="upper dropdown-toggle"><i class="fa fa-sign-in fa-lg"></i> Login</a>
         <div aria-labelledby="dropdownMenuLogin" class="dropdown-menu widget-box">
             <form action="@Url.Action("Login", "User")" method="post">

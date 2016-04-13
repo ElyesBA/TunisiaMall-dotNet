@@ -8,6 +8,6 @@ namespace TunisiaMall.Domain.Entities
         public int idImage { get; set; }
         public string imagePath { get; set; }
         public Nullable<int> idProduct { get; set; }
-        public virtual product product { get; set; }
+        public product product { get; set; }
     }
 }

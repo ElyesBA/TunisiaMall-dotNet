@@ -10,6 +10,6 @@ namespace TunisiaMall.Domain.Entities
         public string nature { get; set; }
         public string text { get; set; }
         public Nullable<int> idUser { get; set; }
-        public virtual user user { get; set; }
+        public user user { get; set; }
     }
 }

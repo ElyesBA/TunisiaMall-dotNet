@@ -27,12 +27,12 @@ namespace TunisiaMall.Domain.Entities
         public Nullable<int> IdPromotionSuggest_fk { get; set; }
         public Nullable<int> IdStore { get; set; }
         public Nullable<int> IdSubCategory { get; set; }
-        public virtual ICollection<image> images { get; set; }
-        public virtual ICollection<mvtstock> mvtstocks { get; set; }
-        public virtual ICollection<orderline> orderlines { get; set; }
-        public virtual store store { get; set; }
-        public virtual promotionsuggest promotionsuggest { get; set; }
-        public virtual promotion promotion { get; set; }
-        public virtual subcategory subcategory { get; set; }
+        public ICollection<image> images { get; set; }
+        public ICollection<mvtstock> mvtstocks { get; set; }
+        public ICollection<orderline> orderlines { get; set; }
+        public store store { get; set; }
+        public promotionsuggest promotionsuggest { get; set; }
+        public promotion promotion { get; set; }
+        public subcategory subcategory { get; set; }
     }
 }

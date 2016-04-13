@@ -8,7 +8,7 @@ namespace TunisiaMall.Domain.Entities
         public int idEvent { get; set; }
         public int idSubscription { get; set; }
         public int idUser { get; set; }
-        public virtual Event eventt { get; set; }
-        public virtual user user { get; set; }
+        public Event eventt { get; set; }
+        public user user { get; set; }
     }
 }

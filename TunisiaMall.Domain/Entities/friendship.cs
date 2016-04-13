@@ -9,7 +9,7 @@ namespace TunisiaMall.Domain.Entities
         public bool accepted { get; set; }
         public int idUser1 { get; set; }
         public int idUser2 { get; set; }
-        public virtual user user1 { get; set; }
-        public virtual user user2 { get; set; }
+        public user user1 { get; set; }
+        public user user2 { get; set; }
     }
 }

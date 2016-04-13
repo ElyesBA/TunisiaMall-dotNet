@@ -20,6 +20,6 @@ namespace TunisiaMall.Domain.Entities
         public bool status { get; set; }
         public bool storeInMall { get; set; }
         public Nullable<int> category_fk { get; set; }
-        public virtual category category { get; set; }
+        public category category { get; set; }
     }
 }
