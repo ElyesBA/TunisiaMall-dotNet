@@ -16,9 +16,9 @@ namespace TunisiaMall.Domain.Entities
         public int? idUser { get; set; }
 
 
-        public virtual category category { get; set; }
-        public virtual ICollection<product> products { get; set; }
-        public virtual user user { get; set; }
-        public virtual ICollection<Event> events { get; set; }
+        public category category { get; set; }
+        public ICollection<product> products { get; set; }
+        public user user { get; set; }
+        public ICollection<Event> events { get; set; }
     }
 }

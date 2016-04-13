@@ -16,7 +16,7 @@ namespace TunisiaMall.Domain.Entities
         public Nullable<int> idCategory { get; set; }
 
 
-        public virtual category category { get; set; }
-        public virtual ICollection<product> products { get; set; }
+        public category category { get; set; }
+        public ICollection<product> products { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<TunisiaMall.Domain.Entities.post>
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<TunisiaMall.Domain.Entities.post>
 
 @{
     ViewBag.Title = "Forum";
@@ -6,59 +7,48 @@
 
 <h2>Index</h2>
 
+@if (Request.IsAuthenticated)
+{
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Post", "Create", new { idTopic = ViewBag.idTopic })
 </p>
-<table class="table">
+}
+
+<table class="table table-bordered">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idPost)
+            Title
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.description)
+            Post Date
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.rating)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.postDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idUser)
+            Posted By
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idPost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.rating)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.postDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idUser)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.idPost }) |
-            @Html.ActionLink("Detail", "DetailPost", new { id = item.idPost }) |
-            @Html.ActionLink("Delete","Delete", new { id = item.idPost})
-        </td>
-     
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink(item.title, "DetailPost", new { id = item.idPost })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.user.login)
+            </td>
+            @if (item.idUser == ViewBag.idUser)
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.idPost }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idPost })
+                </td>
+            }
+
+        </tr>
+    }
 
 </table>

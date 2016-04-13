@@ -1,41 +1,18 @@
-﻿@model IEnumerable<TunisiaMall.Domain.Entities.topic>
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<TunisiaMall.Domain.Entities.topic>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Forum";
 }
 
-<h2>Index</h2>
+<h2>Topics</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-     <!--   <th>
-            @Html.DisplayNameFor(model => model.idTopic)
-        </th>
-         -->
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-     <!--   <td>
-            @Html.DisplayFor(modelItem => item.idTopic)
-        </td>
-         -->
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-           
-            @Html.ActionLink("liste des posts", "Index", "Post", new { idTopic = item.idTopic  } , null) 
-            
-        </td>
-    </tr>
+
+
+@foreach (var item in Model)
+{
+
+    <h2>@Html.ActionLink(item.title, "Index", "Post", new { idTopic = item.idTopic }, null)</h2>
+
 }
-
-</table>

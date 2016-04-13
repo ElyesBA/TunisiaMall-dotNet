@@ -16,6 +16,6 @@ namespace TunisiaMall.Domain.Entities
         public int idTopic { get; set; }
         public string title { get; set; }
 
-        public virtual ICollection<post> posts { get; set; }
+        public ICollection<post> posts { get; set; }
     }
 }

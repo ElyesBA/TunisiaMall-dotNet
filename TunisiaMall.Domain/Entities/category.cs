@@ -10,8 +10,8 @@ namespace TunisiaMall.Domain.Entities
         public string libelle { get; set; }
 
 
-        public virtual ICollection<subcategory> subcategories { get; set; }
-        public virtual ICollection<shoprequest> shoprequests { get; set; }
-        public virtual ICollection<store> stores { get; set; }
+        public ICollection<subcategory> subcategories { get; set; }
+        public ICollection<shoprequest> shoprequests { get; set; }
+        public ICollection<store> stores { get; set; }
     }
 }

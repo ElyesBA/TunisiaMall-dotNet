@@ -17,6 +17,6 @@ namespace TunisiaMall.Domain.Entities
         public Nullable<System.DateTime> startDate { get; set; }
         public Nullable<System.DateTime> suggestionDate { get; set; }
         public double value { get; set; }
-        public virtual ICollection<product> products { get; set; }
+        public ICollection<product> products { get; set; }
     }
 }

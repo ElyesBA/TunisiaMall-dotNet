@@ -9,7 +9,7 @@ namespace TunisiaMall.Domain.Entities
         public int qte { get; set; }
         public Nullable<int> idOrder_fk { get; set; }
         public Nullable<int> idProduct_fk { get; set; }
-        public virtual product product { get; set; }
-        public virtual order order { get; set; }
+        public product product { get; set; }
+        public order order { get; set; }
     }
 }

@@ -19,6 +19,6 @@ namespace TunisiaMall.Domain.Entities
         public int rating { get; set; }
         public string text { get; set; }
         public int? user_idUser { get; set; }
-        public virtual user user { get; set; }
+        public user user { get; set; }
     }
 }

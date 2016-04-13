@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Services;
+using TunisiaMallWeb.Logic;
 
 namespace TunisiaMallWeb.Controllers
 {
@@ -16,6 +17,12 @@ namespace TunisiaMallWeb.Controllers
         [Route("Forum/{idTopic}")]
         public ActionResult Index(int idTopic)
         {
+            ViewBag.idUser = 0;
+            if (CurrentUser.get() != null)
+            {
+                ViewBag.idUser = CurrentUser.get().idUser;
+            }
+            ViewBag.idTopic = idTopic;
             var posts = p.GetPostByTopic(idTopic);
             return View(posts);
         }
@@ -33,21 +40,24 @@ namespace TunisiaMallWeb.Controllers
         }
 
         // GET: Post/Create
-        public ActionResult Create()
+        public ActionResult Create(int idTopic)
         {
-            ViewBag.dateToday = DateTime.Now;
+            ViewBag.idTopic = idTopic;
             return View();
         }
 
         // POST: Post/Create
         [HttpPost]
-        public ActionResult Create(post post)
+        [Authorize]
+        public ActionResult Create(int idTopic, post post)
         {
-
+            post.user = CurrentUser.get();
+            post.topic = t.FindById(idTopic);
+            post.postDate = DateTime.Now;
             p.Create(post);
             p.Commit();
 
-            return RedirectToAction("Index", new { idTopic = post.idTopic});
+            return RedirectToAction("Index", new { idTopic = post.idTopic });
         }
 
         // GET: Post/Edit/5

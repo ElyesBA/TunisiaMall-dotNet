@@ -11,7 +11,7 @@ namespace TunisiaMall.Domain.Entities
         public int periodEvent { get; set; }
         public string titleEvent { get; set; }
         public string typeEvent { get; set; }
-        public virtual ICollection<subscription> subscriptions { get; set; }
-        public virtual ICollection<store> stores { get; set; }
+        public ICollection<subscription> subscriptions { get; set; }
+        public ICollection<store> stores { get; set; }
     }
 }
