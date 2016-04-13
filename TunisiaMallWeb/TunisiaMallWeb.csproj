@@ -576,12 +576,16 @@
     <Content Include="Views\Message\Discussion.cshtml" />
     <Content Include="Views\Message\Index.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\User\DeleteUser.cshtml" />
+    <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\User\FriendShip.cshtml" />
+    <Content Include="Views\User\GetProfile.cshtml" />
+    <Content Include="Views\User\UserCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Order\" />
     <Folder Include="Views\Points\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
