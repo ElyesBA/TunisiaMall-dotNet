@@ -31,8 +31,8 @@ namespace TunisiaMall.Domain.Entities
         public ICollection<friendship> sentFriendRequests { get; set; }
         public ICollection<friendship> friendRequests { get; set; }
         public ICollection<gestbookentry> gestbookentries { get; set; }
-        public ICollection<message> recivedMessages { get; set; }
-        public ICollection<message> sentMessages { get; set; }
+        public virtual ICollection<message> recivedMessages { get; set; }
+        public virtual ICollection<message> sentMessages { get; set; }
         public ICollection<order> orders { get; set; }
         public ICollection<post> posts { get; set; }
         public ICollection<store> stores { get; set; }

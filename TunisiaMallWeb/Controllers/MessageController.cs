@@ -5,18 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Services;
+using TunisiaMallWeb.Logic;
 
 namespace TunisiaMallWeb.Controllers
 {
     public class MessageController : Controller
     {
         private IMessageService messageService = new MessageService();
-        private static int idCurrentUser = 1;
         // GET: Message
         [Route("Inbox")]
         public ActionResult Index()
         {
-            List<message> listMessages = messageService.getMessagesForUser(idCurrentUser);
+            List<message> listMessages = messageService.getMessagesForUser(CurrentUser.get().idUser);
             return View(listMessages);
         }
 
@@ -24,7 +24,7 @@ namespace TunisiaMallWeb.Controllers
         [Route("Inbox/{idUser}")]
         public ActionResult Discussion(int idUser)
         {
-            List<message> messagesList = messageService.getConversation(idCurrentUser, idUser);
+            List<message> messagesList = messageService.getConversation(CurrentUser.get().idUser, idUser);
             if (messagesList.Count > 0)
             {
                 ViewBag.idReceiver = idUser;
@@ -48,7 +48,7 @@ namespace TunisiaMallWeb.Controllers
         {
             int idUser = int.Parse(collection["idUser"]);
             string text = collection["messageText"];
-            messageService.sendMessage(idCurrentUser, idUser, text);
+            messageService.sendMessage(CurrentUser.get().idUser, idUser, text);
             return RedirectToAction("Discussion", new { idUser = idUser });
         }
 
@@ -57,7 +57,7 @@ namespace TunisiaMallWeb.Controllers
         [Route("Message/Delete/{idUser}")]
         public ActionResult Delete(int idUser)
         {
-            messageService.deleteConversation(idCurrentUser, idUser);
+            messageService.deleteConversation(CurrentUser.get().idUser, idUser);
             return RedirectToAction("Index");
         }
     }
