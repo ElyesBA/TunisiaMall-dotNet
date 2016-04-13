@@ -44,7 +44,7 @@ namespace  TunisiaMall.Data.Infrastructure
             }
         }
 
-        public virtual void Delete(T e)
+        public void Delete(T e)
         {
             dbset.Remove(e);
         }

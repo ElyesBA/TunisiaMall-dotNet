@@ -39,24 +39,16 @@
        
         
         <td>
-            @foreach (var item1 in (List<friendship>)ViewBag.lfriends)
-            {
-                if (item1.idUser1.Equals(1) && item1.Equals(item.idUser))
-                {
-                    @Html.DisplayName("Already A Friend")
-                }
-                else
-                {
-                    <button type="button" value="AddFriend" onclick="addFriend()">AddFriend</button>
+     
+         <button type="button" value="AddFriend" onclick="@Url.Action("addFriend","User",new {idUser2=item.idUser }) ">AddFriend</button>
                     
-                }
-            }
 
-           
-
-            
         </td>
     </tr>
 }
 
 </table>
+<div>
+   
+    @Html.ActionLink("GoToProfile", "GetProfile")
+</div>

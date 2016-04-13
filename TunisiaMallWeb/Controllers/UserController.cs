@@ -16,7 +16,7 @@ namespace TunisiaMallWeb.Controllers
     {
         IUserService u = new UserService();
         IFriendShipService fs = new FriendShipService();
-        // [Authorize]
+         [Authorize]
         [Route("GetProfile")]
         public ActionResult GetProfile()
         {
@@ -47,7 +47,7 @@ namespace TunisiaMallWeb.Controllers
         {
             u.Create(us);
             u.Commit();
-            return Redirect("UserCreate");
+            return Redirect("Login");
 
         }
 
@@ -55,6 +55,7 @@ namespace TunisiaMallWeb.Controllers
 
 
         // GET: User/Edit/5
+        [Authorize]
         [HttpGet]
         [Route("EditUser")]
         public ActionResult EditUser()
@@ -70,11 +71,11 @@ namespace TunisiaMallWeb.Controllers
 
         // POST: User/Edit/5
         [HttpPost]
+        [Authorize]
         [Route("EditUser")]
         public ActionResult EditUser(user us)
         {
-            try
-            {
+            
                 var ur = u.FindById(us.idUser);
                 ur.firstName = us.firstName;
                 ur.birthdate = us.birthdate;
@@ -88,36 +89,34 @@ namespace TunisiaMallWeb.Controllers
 
                 return Redirect("EditUser");
 
-            }
-            catch
-            {
-                return View();
-            }
+            
         }
 
 
         // GET: User/Delete/5
         [HttpGet]
+        [Authorize]
         [Route("DeleteUser")]
-        public ActionResult DeleteUser(int id = 1)
+        public ActionResult DeleteUser()
         {
-            user e = u.FindById(id);
+            user e = CurrentUser.get();
             return View(e);
         }
 
         // POST: User/Delete/5
         [HttpPost]
+        [Authorize]
         [Route("DeleteUser")]
         public ActionResult DeleteUser(user us)
         {
-            user ur = u.FindById(us.idUser);
-            u.Delete(ur);
+            
+            u.Delete(CurrentUser.get());
             u.Commit();
 
-            return RedirectToAction("DeleteUser");
+            return RedirectToAction("Logout");
         }
 
-
+        [Authorize]
         [HttpGet]
         [Route("FriendShip")]
         public ActionResult FriendShip()
@@ -128,31 +127,27 @@ namespace TunisiaMallWeb.Controllers
             IEnumerable<friendship> friends = fs.GetMany();
             List<friendship> listfriends = friends.ToList();
             ViewBag.lfriends = listfriends;
+            ViewBag.cUser = CurrentUser.get();
             return View(listusers);
 
         }
-
+        [Authorize]
         [HttpPost]
         [Route("addFriend")]
-        public ActionResult addFriend(int idUser1, int idUser2)
+        public ActionResult addFriend( int idUser2)
         {
-            try
-            {
+            
                 friendship fr = new friendship();
-                fr.idUser1 = idUser1;
-                fr.idUser2 = idUser2;
+            fr.idUser1 = CurrentUser.get().idUser;
+            fr.idUser2 = idUser2;
                 fr.accepted = true;
                 fs.Create(fr);
                 fs.Commit();
 
                 return RedirectToAction("FriendShip");
-            }
-            catch
-            {
-                return View();
-            }
+            
         }
-
+        
         [HttpPost]
         public ActionResult Login(string username, string password)
         {
@@ -179,7 +174,7 @@ namespace TunisiaMallWeb.Controllers
             ModelState.AddModelError("", "invalid username or password");
             return RedirectToAction("Index", "Home");
         }
-
+        
         public ActionResult Logout()
         {
             HttpContext.GetOwinContext().Authentication.SignOut();
