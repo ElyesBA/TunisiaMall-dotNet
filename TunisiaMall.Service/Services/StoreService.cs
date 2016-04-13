@@ -7,7 +7,7 @@ using TunisiaMall.Data.Infrastructure;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Pattern;
 
-namespace TunisiaMall.Service
+namespace TunisiaMall.Service.Services
 {
     public class StoreService: Service<store> , IStoreService 
     {

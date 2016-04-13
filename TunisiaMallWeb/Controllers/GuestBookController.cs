@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service;
+using TunisiaMall.Service.Services;
 
 namespace TunisiaMallWeb.Controllers
 {
