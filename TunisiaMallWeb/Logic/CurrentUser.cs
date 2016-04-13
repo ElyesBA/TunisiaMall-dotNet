@@ -21,6 +21,7 @@ namespace TunisiaMallWeb.Logic
                 return user;
             }
             catch (Exception e)
+
             {
                 return null;
             }

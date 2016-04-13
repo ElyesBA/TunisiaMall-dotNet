@@ -9,12 +9,12 @@ namespace TunisiaMall.Service.Services
 {
     public interface IOrderService
     {
-        void createOrder(order o);
+        int  createOrder(order o);
         void removeOrder(order o);
         void saveAsUnpaiedOrderOrUnpaid(order o, int status);
         void editOrder(order o);
         IEnumerable<customerOrders> getOrdersByCustomer(customer c = null);
-        void addProductToCart(product p);
+     
     }
  
 }

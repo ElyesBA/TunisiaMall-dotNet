@@ -26,5 +26,10 @@ namespace TunisiaMall.Service.Services
             }
             return false;
         }
+        public int getUserIdByUsername(string name)
+        {
+            // return work.getRepository<user>().GetMany(u => u.login == name).First().idUser ;
+            return 1;
+        }
     }
 }

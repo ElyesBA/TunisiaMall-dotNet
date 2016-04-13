@@ -10,6 +10,7 @@ namespace TunisiaMall.Domain.Entities
             this.images = new List<image>();
             this.mvtstocks = new List<mvtstock>();
             this.orderlines = new List<orderline>();
+           
         }
 
         public int idProduct { get; set; }

@@ -9,30 +9,19 @@ using TunisiaMall.Service.Pattern;
 
 namespace TunisiaMall.Service.Services
 {
-    public class ProductService : Service<product> , IProductService
+  public  class PromotionService : Service<promotion>, IPromotionService
     {
         // Attributes
         private static IDatabaseFactory dbFactory = new DatabaseFactory();
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
         // Methods
-        public ProductService() : base(work){ }
+        public PromotionService() : base(work){ }
 
-        public IEnumerable<product> findByLibelle(string lib)
+        public promotion getPromotionByID(long id)
         {
-            return work.getRepository<product>().GetMany(t => t.libelle.Contains(lib));
-        }
 
-        public IEnumerable<product> getAll()
-        {
-            return work.getRepository<product>().GetMany();
-        }
-
-        public product getProdByID(int id)
-        {
             return FindById(id);
         }
 
     }
-
 }
-

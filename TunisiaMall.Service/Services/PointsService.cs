@@ -9,16 +9,18 @@ using TunisiaMall.Service.Pattern;
 
 namespace TunisiaMall.Service.Services
 {
-    public class PointsService :Service<customer>, IPonitsService
+    public class PointsService : Service<customer>, IPonitsService
     {
         private static IDatabaseFactory dbFactory = new DatabaseFactory();
         private static IUnitOfWork work = new UnitOfWork(dbFactory);
-        public PointsService() : base(work){ }
+        public PointsService() : base(work) { }
+
+
         public void addPointsToCustomer(customer u, int points)
         {
-            u = FindById(u.idUser);
+            u = work.getRepository<customer>().FindById(u.idUser);
             u.points = u.points + points;
-            Update(u);
+            work.getRepository<customer>().Update(u);
             work.Commit();
         }
 
@@ -44,7 +46,7 @@ namespace TunisiaMall.Service.Services
         //this method removes Points From Customer
         public void removePointsFromCustomer(customer u, int points)
         {
-            u =FindById(u.idUser);
+            u = FindById(u.idUser);
 
             if (u.points > 0 && u.points > points)
             {
