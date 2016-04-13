@@ -6,7 +6,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Services;
+using TunisiaMallWeb.Logic;
 
 namespace TunisiaMallWeb.Controllers
 {
@@ -26,19 +28,17 @@ namespace TunisiaMallWeb.Controllers
               new Claim(ClaimTypes.Name,username),
 
               // optionally you could add roles if any
-              new Claim(ClaimTypes.Role, "RoleName"),
-              new Claim(ClaimTypes.Role, "AnotherRole"),
+              new Claim(ClaimTypes.Role, "Customer"),
 
                   },
                   DefaultAuthenticationTypes.ApplicationCookie);
-
                 HttpContext.GetOwinContext().Authentication.SignIn(
                    new AuthenticationProperties { IsPersistent = false }, ident);
                 return RedirectToAction("Index", "Home"); // auth succeed 
             }
             // invalid username or password
             ModelState.AddModelError("", "invalid username or password");
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Logout()
@@ -47,10 +47,11 @@ namespace TunisiaMallWeb.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize(Roles = "AnotherRole")]
+        
         public string MySecretAction()
         {
-            return "xxx";
+            user user = CurrentUser.get();
+            return  "";
         }
     }
 }
