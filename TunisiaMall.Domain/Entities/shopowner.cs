@@ -7,8 +7,9 @@ using TunisiaMall.Domain.Entities;
 
 namespace TunisiaMall.Domain.Entities
 {
-   public class shopowner: user
+    public class shopowner : user
     {
         public Nullable<System.DateTime> dateActivation { get; set; }
+        public ICollection<store> stores { get; set; }
     }
 }
