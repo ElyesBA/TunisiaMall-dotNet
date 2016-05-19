@@ -1,0 +1,64 @@
+﻿@model TunisiaMall.Domain.Entities.Event
+
+@{
+    ViewBag.Title = "DetailEvent";
+}
+<section itemscope itemtype="http://data-vocabulary.org/Product">
+    <div class="container">
+        <div class="row">
+            <!-- Start Sidebar-->
+            <div class="col-md-5 sep-top-2x">
+                <div class="product-images">
+                    <a href="@Url.Content("~/Content/images/events/"+Model.idEvent+".png")" data-rel="prettyPhoto[pp_gal0]" title="@Model.titleEvent">
+                        <img title="" alt="" src="@Url.Content("~/Content/images/events/"+Model.idEvent+".png")" itemprop="image" class="img-responsive">
+                    </a>
+                </div>
+            </div>
+            <!-- End Sidebar-->
+            <!-- Start Content-->
+            <div class="col-md-7 sep-top-lg">
+                <div class="main-product-title">
+                    <ul class="social-icon pull-right">
+                        <li><a href="#"><i class="fa fa-twitter fa-lg"></i></a></li>
+                        <li><a href="#"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+                        <li><a href="#"><i class="fa fa-pinterest fa-lg"></i></a></li>
+                    </ul>
+                    <h2><span itemprop="name">@Model.titleEvent</span><small itemprop="brand">@Model.typeEvent</small></h2>
+                    <meta itemprop="identifier" content="mpn:12345-6789">
+                </div>
+                <div itemprop="description" class="sep-top-sm">
+                    @Model.description
+                </div>
+                <div itemprop="offers" itemscope class="price-shop sep-top-xs">
+                    <meta itemprop="priceCurrency" content="USD">
+                    <ins>@Model.periodEvent Jours</ins>
+                </div>
+                
+                    <div class="row">
+                        <div class="col-md-10 col-sm-6 sep-top-md">
+                            <div class="btn-group">
+                                @if (ViewBag.isSubscribe == false){
+                                    using (Html.BeginForm("Subscribe", "Events", FormMethod.Post, new { id = "submitForm" }))
+                                    {
+                                        <button type="submit" class="btn btn-success"><i class="fa fa-check-circle-o margin-right-10"></i>Interessé(e)</button>
+                                        <input type="hidden" name="id_user" value="1" />
+                                        <input type="hidden" name="id_event" value="@Model.idEvent" />
+                                    }
+                                }else{
+                                    using (Html.BeginForm("NoSubscribe", "Events", FormMethod.Post, new { id = "submitForm" }))
+                                    {
+                                        <button type="submit" class="btn btn-danger"><i class="fa fa-times-circle-o margin-right-10"></i>Ingoner</button>
+                                        <input type="hidden" name="id_user" value="1" />
+                                        <input type="hidden" name="id_event" value="@Model.idEvent" />
+                                    }
+                                }
+                            </div>
+                        </div>
+                        
+                    </div>
+                
+          </div>
+            <!-- End Content-->
+        </div>
+    </div>
+</section>

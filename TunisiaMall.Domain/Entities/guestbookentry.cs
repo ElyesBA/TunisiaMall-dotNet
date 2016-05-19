@@ -3,14 +3,13 @@ using System.Collections.Generic;
 
 namespace TunisiaMall.Domain.Entities
 {
-    public partial class gestbookentry
+    public partial class guestbookentry
     {
 
-        public gestbookentry() {
+        public guestbookentry()
+        {
             this.dateEntrie = DateTime.Now.Date;
             this.rating = 0;
-            this.user_idUser = 2;
-
         }
 
 
@@ -18,7 +17,7 @@ namespace TunisiaMall.Domain.Entities
         public Nullable<System.DateTime> dateEntrie { get; set; }
         public int rating { get; set; }
         public string text { get; set; }
-        public int? user_idUser { get; set; }
+        public int? idUser { get; set; }
         public user user { get; set; }
     }
 }

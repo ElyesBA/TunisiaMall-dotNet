@@ -8,9 +8,9 @@ namespace TunisiaMall.Domain.Entities
         public int idMessage { get; set; }
         public System.DateTime date { get; set; }
         public string text { get; set; }
-        public int idUserReciver_fk { get; set; }
-        public int idUserSender_FK { get; set; }
-        public virtual user reciver { get; set; }
+        public int idReceiver { get; set; }
+        public int idSender { get; set; }
+        public virtual user receiver { get; set; }
         public virtual user sender { get; set; }
     }
 }

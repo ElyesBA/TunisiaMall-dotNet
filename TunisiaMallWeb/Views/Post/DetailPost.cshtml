@@ -11,14 +11,13 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.idPost)
+            @Html.DisplayNameFor(model => model.title)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.idPost)
-        </dd>
-
+            @Html.DisplayFor(model => model.title)
         <dt>
+
             @Html.DisplayNameFor(model => model.description)
         </dt>
 
@@ -26,20 +25,7 @@
             @Html.DisplayFor(model => model.description)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.title)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.title)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.rating)
         </dd>
 
         <dt>
@@ -50,21 +36,13 @@
             @Html.DisplayFor(model => model.postDate)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.idUser)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.idUser)
-        </dd>
-
     </dl>
 </div>
 @Html.Partial("GetComments", Model.comments)
 
 <form action="@Url.Action("Create", "Comment")" method="post">
     <textarea name="text"></textarea>
-    <input type="hidden" name="idPost" value="@Model.idPost"/>
+    <input type="hidden" name="idPost" value="@Model.idPost" />
     <button type="submit">Reply</button>
 </form>
 

@@ -10,7 +10,6 @@ namespace TunisiaMall.Domain.Entities
             this.images = new List<image>();
             this.mvtstocks = new List<mvtstock>();
             this.orderlines = new List<orderline>();
-           
         }
 
         public int idProduct { get; set; }
@@ -23,7 +22,7 @@ namespace TunisiaMall.Domain.Entities
         public string state { get; set; }
         public string tag { get; set; }
         public double tax { get; set; }
-        public Nullable<long> Promotion_idPromotion { get; set; }
+        public Nullable<long> idPromotion { get; set; }
         public Nullable<int> IdPromotionSuggest_fk { get; set; }
         public Nullable<int> IdStore { get; set; }
         public Nullable<int> IdSubCategory { get; set; }

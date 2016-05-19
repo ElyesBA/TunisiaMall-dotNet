@@ -1,33 +1,18 @@
 ﻿@model IEnumerable<TunisiaMall.Domain.Entities.comment>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.idComment)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.commentDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.text)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idPost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.idUser)
-        </th>
-        <th></th>
+        <th>User</th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.idComment)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.commentDate)
         </td>
@@ -35,10 +20,7 @@
             @Html.DisplayFor(modelItem => item.text)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.idPost)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idUser)
+            @Html.DisplayFor(modelItem => item.user.login)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", "Comment", new { id = item.idComment }, null) |

@@ -19,7 +19,7 @@ namespace TunisiaMall.Service.Services
 
         public List<message> getConversation(int idUser1, int idUser2)
         {
-            return GetMany(m => (m.sender.idUser == idUser1 && m.reciver.idUser == idUser2) || (m.sender.idUser == idUser2 && m.reciver.idUser == idUser1)).OrderBy(m => m.date).ToList();
+            return GetMany(m => (m.sender.idUser == idUser1 && m.receiver.idUser == idUser2) || (m.sender.idUser == idUser2 && m.receiver.idUser == idUser1)).OrderBy(m => m.date).ToList();
         }
 
         public List<message> getMessagesForUser(int idUser)
@@ -44,7 +44,7 @@ namespace TunisiaMall.Service.Services
             m.text = text;
             m.date = DateTime.Now;
             m.sender = sender;
-            m.reciver = receiver;
+            m.receiver = receiver;
             this.Create(m);
             this.Commit();
         }

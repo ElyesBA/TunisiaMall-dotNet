@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using TunisiaMall.Data.Infrastructure;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Pattern;
-using TunisiaMall.Service.Services;
 
 namespace TunisiaMall.Test
 {
@@ -14,7 +13,7 @@ namespace TunisiaMall.Test
     {
         static void Main(string[] args)
         {
-            IDatabaseFactory dbFactory = new DatabaseFactory();
+            /*IDatabaseFactory dbFactory = new DatabaseFactory();
             IUnitOfWork work = new UnitOfWork(dbFactory);
             // Services
             IMessageService messageService = new MessageService();
@@ -24,9 +23,9 @@ namespace TunisiaMall.Test
             foreach(var m in ls)
             {
                 Console.WriteLine("{0} {1}",m.idMessage, m.text);
-            }*/
+            }
             //Console.WriteLine(userService.Athenticate("user1","esprit"));
-            Console.ReadKey();
+            Console.ReadKey();*/
         }
     }
 }

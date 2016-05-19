@@ -75,7 +75,7 @@
     <Compile Include="Models\Mapping\complaintMap.cs" />
     <Compile Include="Models\Mapping\eventMap.cs" />
     <Compile Include="Models\Mapping\friendshipMap.cs" />
-    <Compile Include="Models\Mapping\gestbookentryMap.cs" />
+    <Compile Include="Models\Mapping\guestbookentryMap.cs" />
     <Compile Include="Models\Mapping\imageMap.cs" />
     <Compile Include="Models\Mapping\messageMap.cs" />
     <Compile Include="Models\Mapping\mvtstockMap.cs" />

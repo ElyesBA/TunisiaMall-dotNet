@@ -21,7 +21,7 @@ namespace TunisiaMall.Data.Models.Mapping
                 .HasMaxLength(255);
 
             // Table & Column Mappings
-            ToTable("Orders");
+            ToTable("orders");
             this.Property(t => t.idOrder).HasColumnName("idOrder");
             this.Property(t => t.amountPayed).HasColumnName("amountPayed");
             this.Property(t => t.cardHolder).HasColumnName("cardHolder");

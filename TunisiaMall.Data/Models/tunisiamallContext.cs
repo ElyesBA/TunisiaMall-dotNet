@@ -21,7 +21,7 @@ namespace TunisiaMall.Data.Models
         public DbSet<complaint> complaints { get; set; }
         public DbSet<Event> events { get; set; }
         public DbSet<friendship> friendships { get; set; }
-        public DbSet<gestbookentry> gestbookentries { get; set; }
+        public DbSet<guestbookentry> guestbookentries { get; set; }
         public DbSet<image> images { get; set; }
         public DbSet<message> messages { get; set; }
         public DbSet<mvtstock> mvtstocks { get; set; }
@@ -45,7 +45,7 @@ namespace TunisiaMall.Data.Models
             modelBuilder.Configurations.Add(new complaintMap());
             modelBuilder.Configurations.Add(new eventMap());
             modelBuilder.Configurations.Add(new friendshipMap());
-            modelBuilder.Configurations.Add(new gestbookentryMap());
+            modelBuilder.Configurations.Add(new guestbookentryMap());
             modelBuilder.Configurations.Add(new imageMap());
             modelBuilder.Configurations.Add(new messageMap());
             modelBuilder.Configurations.Add(new mvtstockMap());

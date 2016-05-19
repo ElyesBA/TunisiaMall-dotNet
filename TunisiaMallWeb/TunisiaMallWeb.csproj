@@ -216,12 +216,15 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\GuestBookController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\PointsController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\SubCategoryController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
@@ -315,6 +318,17 @@
     <Content Include="Content\images\devices\surface.png" />
     <Content Include="Content\images\eshop-intro-img.jpg" />
     <Content Include="Content\images\eshop-intro-img.png" />
+    <Content Include="Content\images\events\1.png" />
+    <Content Include="Content\images\events\10.png" />
+    <Content Include="Content\images\events\11.png" />
+    <Content Include="Content\images\events\2.png" />
+    <Content Include="Content\images\events\3.png" />
+    <Content Include="Content\images\events\4.png" />
+    <Content Include="Content\images\events\5.png" />
+    <Content Include="Content\images\events\6.png" />
+    <Content Include="Content\images\events\7.png" />
+    <Content Include="Content\images\events\8.png" />
+    <Content Include="Content\images\events\9.png" />
     <Content Include="Content\images\home-img.jpg" />
     <Content Include="Content\images\intro-home1.jpg" />
     <Content Include="Content\images\intro-home10.jpg" />
@@ -581,12 +595,17 @@
     <Content Include="Views\User\FriendShip.cshtml" />
     <Content Include="Views\User\GetProfile.cshtml" />
     <Content Include="Views\User\UserCreate.cshtml" />
+    <Content Include="Views\Order\Create.cshtml" />
+    <Content Include="Views\Order\Delete.cshtml" />
+    <Content Include="Views\Order\getCartItems.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Events\DetailEvent.cshtml" />
+    <Content Include="Views\Events\DetailEventTitle.cshtml" />
+    <Content Include="Views\Events\listEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\Points\" />
-    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

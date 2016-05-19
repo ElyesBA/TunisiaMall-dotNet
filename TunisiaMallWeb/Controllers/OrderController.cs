@@ -150,7 +150,7 @@ namespace TunisiaMallWeb.Controllers
 
                 o.date = DateTime.Now;
                 o.idUser = 1;
-                int id=os.createOrder(o);
+                int id = os.createOrder(o);
 
                 foreach (var item in us.getCurrentSessionOrderLines())
                 {

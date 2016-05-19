@@ -1,0 +1,66 @@
+﻿@model TunisiaMall.Domain.Entities.Event
+
+@{
+    ViewBag.Title = "DetailEventTitle";
+}
+
+<h2>DetailEventTitle</h2>
+
+<div>
+    <h4>Event</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.idEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.periodEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.periodEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.titleEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.titleEvent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.typeEvent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.typeEvent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

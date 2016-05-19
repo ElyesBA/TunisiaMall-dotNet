@@ -20,16 +20,16 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.idMessage).HasColumnName("idMessage");
             this.Property(t => t.date).HasColumnName("date");
             this.Property(t => t.text).HasColumnName("text");
-            this.Property(t => t.idUserReciver_fk).HasColumnName("idUserReciver_fk");
-            this.Property(t => t.idUserSender_FK).HasColumnName("idUserSender_FK");
+            this.Property(t => t.idReceiver).HasColumnName("idReceiver");
+            this.Property(t => t.idSender).HasColumnName("idSender");
 
             // Relationships
-            this.HasRequired(t => t.reciver)
+            this.HasRequired(t => t.receiver)
                 .WithMany(t => t.recivedMessages)
-                .HasForeignKey(d => d.idUserReciver_fk);
+                .HasForeignKey(d => d.idReceiver);
             this.HasRequired(t => t.sender)
                 .WithMany(t => t.sentMessages)
-                .HasForeignKey(d => d.idUserSender_FK);
+                .HasForeignKey(d => d.idSender);
 
         }
     }

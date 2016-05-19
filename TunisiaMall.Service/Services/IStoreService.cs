@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Pattern;
 
-namespace TunisiaMall.Service
+namespace TunisiaMall.Service.Services
 {
     public interface IStoreService : IService<store>
     {

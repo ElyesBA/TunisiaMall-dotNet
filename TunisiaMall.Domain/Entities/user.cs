@@ -30,7 +30,7 @@ namespace TunisiaMall.Domain.Entities
         public ICollection<complaint> complaints { get; set; }
         public ICollection<friendship> sentFriendRequests { get; set; }
         public ICollection<friendship> friendRequests { get; set; }
-        public ICollection<gestbookentry> gestbookentries { get; set; }
+        public ICollection<guestbookentry> gestbookentries { get; set; }
         public virtual ICollection<message> recivedMessages { get; set; }
         public virtual ICollection<message> sentMessages { get; set; }
         public ICollection<order> orders { get; set; }

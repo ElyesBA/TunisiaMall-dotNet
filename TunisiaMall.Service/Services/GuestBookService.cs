@@ -7,40 +7,40 @@ using TunisiaMall.Data.Infrastructure;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Pattern;
 
-namespace TunisiaMall.Service
+namespace TunisiaMall.Service.Services
 {
-    public class GuestBookService: Service<gestbookentry> , IGuestBookService
+    public class GuestBookService: Service<guestbookentry> , IGuestBookService
     {
         private static IDatabaseFactory dbf = new DatabaseFactory();
         private static IUnitOfWork utfk = new UnitOfWork(dbf);
 
         public GuestBookService() : base(utfk){ }
 
-        public IEnumerable<gestbookentry> GetGuestBookOrderByDate()
+        public IEnumerable<guestbookentry> GetGuestBookOrderByDate()
         {
-           return utfk.getRepository<gestbookentry>().GetMany().OrderBy(g=> g.dateEntrie);
+           return utfk.getRepository<guestbookentry>().GetMany().OrderBy(g=> g.dateEntrie);
         }
 
-        public IEnumerable<gestbookentry> GetGuestBookEntryByKeyword(string keyword)
+        public IEnumerable<guestbookentry> GetGuestBookEntryByKeyword(string keyword)
         {
-            var rest = from entry in dbf.DataContext.gestbookentries
+            var rest = from entry in dbf.DataContext.guestbookentries
                        where entry.text.Contains(keyword)
                        select entry;
             return rest;
         }
 
-        public IEnumerable<gestbookentry> GetGuestBookEntryByDate(DateTime date)
+        public IEnumerable<guestbookentry> GetGuestBookEntryByDate(DateTime date)
         {
-            var rest = from entry in dbf.DataContext.gestbookentries
+            var rest = from entry in dbf.DataContext.guestbookentries
                        where entry.dateEntrie == date
                        select entry;
             return rest;
         }
 
-        public IEnumerable<gestbookentry> FindGuestBookEntry(DateTime date, string keyword)
+        public IEnumerable<guestbookentry> FindGuestBookEntry(DateTime date, string keyword)
         {
-            IEnumerable<gestbookentry> list;
-            ICollection<gestbookentry> list2 = null;
+            IEnumerable<guestbookentry> list;
+            ICollection<guestbookentry> list2 = null;
             list = GetGuestBookEntryByDate(date);
             foreach (var item in list)
             {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using TunisiaMall.Domain.Entities;
-using TunisiaMall.Service;
+using TunisiaMall.Service.Services;
 
 namespace TunisiaMallWeb.Controllers
 {
@@ -19,8 +19,8 @@ namespace TunisiaMallWeb.Controllers
         [Route("GetAllEntries")]
         public ActionResult GetAllEntries()
         {
-            IEnumerable<gestbookentry> guestbooklist = g.GetMany();
-            List<gestbookentry> guestbooklistfinal = guestbooklist.ToList();
+            IEnumerable<guestbookentry> guestbooklist = g.GetMany();
+            List<guestbookentry> guestbooklistfinal = guestbooklist.ToList();
             return View(guestbooklistfinal);
         }
 
@@ -28,7 +28,7 @@ namespace TunisiaMallWeb.Controllers
         [Route("DetailsEntry")]
         public ActionResult DetailsEntry(int id)
         {
-            gestbookentry guest = g.FindById(id);
+            guestbookentry guest = g.FindById(id);
 
             return View(guest);
 
@@ -39,10 +39,10 @@ namespace TunisiaMallWeb.Controllers
         [Route("CreateGuestBookEntry")]
         public ActionResult CreateGuestBookEntry()
         {
-            gestbookentry gestbookE = new gestbookentry();
+            guestbookentry gestbookE = new guestbookentry();
 
             // string userId = Membership.GetUser().ProviderUserKey.ToString();
-            gestbookE.user_idUser = 2;
+            gestbookE.idUser = 2;
 
             return View(gestbookE);
         }
@@ -50,7 +50,7 @@ namespace TunisiaMallWeb.Controllers
 
         [HttpPost]
         [Route("CreateGuestBookEntry")]
-        public ActionResult CreateGuestBookEntry(gestbookentry entry)
+        public ActionResult CreateGuestBookEntry(guestbookentry entry)
         {
             g.Create(entry);
             g.Commit();
@@ -63,7 +63,7 @@ namespace TunisiaMallWeb.Controllers
         [Route("EditGuestBookEntry")]
         public ActionResult EditEntry(long id = -1)
         {
-            gestbookentry guest = g.FindById(id);
+            guestbookentry guest = g.FindById(id);
 
             if (guest == null)
             {
@@ -75,7 +75,7 @@ namespace TunisiaMallWeb.Controllers
         // POST: GuestBook/Edit/5
         [HttpPost]
         [Route("EditGuestBookEntry")]
-        public ActionResult EditEntry(int id, gestbookentry guest)
+        public ActionResult EditEntry(int id, guestbookentry guest)
         {
             try
             {
@@ -98,18 +98,18 @@ namespace TunisiaMallWeb.Controllers
         [Route("DeleteEntry")]
         public ActionResult DeleteEntry(int id)
         {
-            gestbookentry e = g.FindById(id);
+            guestbookentry e = g.FindById(id);
             return View(e);
         }
 
         // POST: GuestBook/Delete/5
         [HttpPost]
         [Route("DeleteEntry")]
-        public ActionResult DeleteEntry(int id, gestbookentry guest)
+        public ActionResult DeleteEntry(int id, guestbookentry guest)
         {
             try
             {
-                gestbookentry gg = g.FindById(id);
+                guestbookentry gg = g.FindById(id);
                 g.Delete(gg);
                 g.Commit();
 
@@ -128,8 +128,8 @@ namespace TunisiaMallWeb.Controllers
         public ActionResult FindEntry(string keyword)
         {
 
-               IEnumerable<gestbookentry> listfind= g.GetGuestBookEntryByKeyword(keyword);
-                List<gestbookentry> listguest = listfind.ToList();
+               IEnumerable<guestbookentry> listfind= g.GetGuestBookEntryByKeyword(keyword);
+                List<guestbookentry> listguest = listfind.ToList();
             return View(listguest);
 
         }

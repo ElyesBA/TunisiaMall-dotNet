@@ -7,7 +7,7 @@ using TunisiaMall.Data.Infrastructure;
 using TunisiaMall.Domain.Entities;
 using TunisiaMall.Service.Pattern;
 
-namespace TunisiaMall.Service
+namespace TunisiaMall.Service.Services
 {
     public class StoreService: Service<store> , IStoreService 
     {
@@ -55,7 +55,7 @@ namespace TunisiaMall.Service
            
             var res = from product in dbf.DataContext.products
                       where product.promotion.state == true
-                      where product.store.idStroe == id
+                      where product.store.idStore == id
                       select product;
             return res;
         }

@@ -11,13 +11,6 @@
     <h4>post</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.idPost)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.idPost)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.description)
@@ -36,14 +29,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.rating)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.rating)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.postDate)
         </dt>
 
@@ -52,11 +37,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.idUser)
+            User
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.idUser)
+            @Html.DisplayFor(model => model.user.login)
         </dd>
 
     </dl>

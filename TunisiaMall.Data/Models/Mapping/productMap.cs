@@ -34,7 +34,7 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.state).HasColumnName("state");
             this.Property(t => t.tag).HasColumnName("tag");
             this.Property(t => t.tax).HasColumnName("tax");
-            this.Property(t => t.Promotion_idPromotion).HasColumnName("Promotion_idPromotion");
+            this.Property(t => t.idPromotion).HasColumnName("idPromotion");
             this.Property(t => t.IdPromotionSuggest_fk).HasColumnName("IdPromotionSuggest_fk");
             this.Property(t => t.IdStore).HasColumnName("IdStore");
             this.Property(t => t.IdSubCategory).HasColumnName("IdSubCategory");
@@ -48,7 +48,7 @@ namespace TunisiaMall.Data.Models.Mapping
                 .HasForeignKey(d => d.IdPromotionSuggest_fk);
             this.HasOptional(t => t.promotion)
                 .WithMany(t => t.products)
-                .HasForeignKey(d => d.Promotion_idPromotion);
+                .HasForeignKey(d => d.idPromotion);
             this.HasOptional(t => t.subcategory)
                 .WithMany(t => t.products)
                 .HasForeignKey(d => d.IdSubCategory);

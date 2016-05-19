@@ -3,11 +3,11 @@ using System.Data.Entity.ModelConfiguration;
 using TunisiaMall.Domain.Entities;
 namespace TunisiaMall.Data.Models.Mapping
 {
-    public class gestbookentryMap : EntityTypeConfiguration<gestbookentry>
+    public class guestbookentryMap : EntityTypeConfiguration<guestbookentry>
     {
-        public gestbookentryMap()
+        public guestbookentryMap()
         {
-            ToTable("gestbookentry");
+            ToTable("guestbookentry");
             // Primary Key
             this.HasKey(t => t.idEntries);
 
@@ -21,12 +21,12 @@ namespace TunisiaMall.Data.Models.Mapping
             this.Property(t => t.dateEntrie).HasColumnName("dateEntrie");
             this.Property(t => t.rating).HasColumnName("rating");
             this.Property(t => t.text).HasColumnName("text");
-            this.Property(t => t.user_idUser).HasColumnName("user_idUser");
+            this.Property(t => t.idUser).HasColumnName("user_idUser");
 
             // Relationships
             this.HasOptional(t => t.user)
                 .WithMany(t => t.gestbookentries)
-                .HasForeignKey(d => d.user_idUser);
+                .HasForeignKey(d => d.idUser);
 
         }
     }

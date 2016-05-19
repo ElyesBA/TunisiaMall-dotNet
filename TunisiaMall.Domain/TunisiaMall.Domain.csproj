@@ -63,7 +63,7 @@
     <Compile Include="Entities\customer.cs" />
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\friendship.cs" />
-    <Compile Include="Entities\gestbookentry.cs" />
+    <Compile Include="Entities\guestbookentry.cs" />
     <Compile Include="Entities\image.cs" />
     <Compile Include="Entities\message.cs" />
     <Compile Include="Entities\mvtstock.cs" />

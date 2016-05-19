@@ -10,7 +10,7 @@ namespace TunisiaMall.Data.Models.Mapping
 
             ToTable("store");
             // Primary Key
-            this.HasKey(t => t.idStroe);
+            this.HasKey(t => t.idStore);
 
             // Properties
             this.Property(t => t.description)
@@ -27,7 +27,7 @@ namespace TunisiaMall.Data.Models.Mapping
 
             // Table & Column Mappings
             
-            this.Property(t => t.idStroe).HasColumnName("idStroe");
+            this.Property(t => t.idStore).HasColumnName("idStore");
             this.Property(t => t.description).HasColumnName("description");
             this.Property(t => t.name).HasColumnName("name");
             this.Property(t => t.openingDay).HasColumnName("openingDay");

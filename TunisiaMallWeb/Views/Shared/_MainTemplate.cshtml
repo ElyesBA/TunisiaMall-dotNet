@@ -73,20 +73,8 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right service-nav">
                         @Html.Partial("_Login")
-                        <li>
-                            <a id="dropdownMenuCart" href="#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-shopping-cart fa-lg"></i>&nbsp;<span class="badge">2</span></a>
-                            <div aria-labelledby="dropdownMenuCart" class="dropdown-menu widget-box">
-                                <div class="shopping_cart_dropdown">
-                                    <ul class="cart_list product_list_widget">
-                                        <li>
-                                            <a href="#" class="delete"><i class="fa fa-close"></i></a><a href="#"><img alt="" src="@Url.Content("~/Content/images/products/3.jpg")"><span>New Peace Baja</span></a>
-                                            <h5 class="quantity">45.00</h5>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="delete"><i class="fa fa-close"></i></a><a href="#"><img alt="" src="@Url.Content("~/Content/images/products/5.jpg")"><span>Sunny Tank Selected</span></a>
-                                            <h5 class="quantity">25.00</h5>
-                                        </li>
-                                    </ul>
+                       @Html.Action("getCartItems","Order")
+                    </ul>
                     <button type="button" class="navbar-toggle"><i class="fa fa-close fa-lg"></i></button>
                     <ul class="nav yamm navbar-nav navbar-left main-nav">
                         <!-- istanzio un id univoco-->
@@ -103,8 +91,11 @@
                                             <div class="col-md-3">
                                                 <h6 class="upper hidden-xs">Shop</h6>
                                                 <ul class="sep-top-xs widget widget-cat">
-                                                    <li class="cat-item"><a href="#" class="upper">Shop List</a></li>
-                                                    <li class="cat-item"><a href="#" class="upper">Shop category</a></li>
+                                                    <li class="cat-item"><a href="@Url.Action("ListStore","Store")" class="upper">Shop List</a></li>
+                                                    <li class="cat-item"><a href="@Url.Action("GetAllCategoriesList","Category")" class="upper">Categories</a></li>
+                                                    <li class="cat-item"><a href="@Url.Action("GetAllCategories","Category")" class="upper">Shop category</a></li>
+                                                    <li class="cat-item"><a href="@Url.Action("ListPromotionnelStore","Store")" class="upper">LATEST SHOP PROMOTIONS</a></li>
+                                                    
                                                 </ul>
                                             </div>
                                             <div class="col-md-3 hidden-xs">
@@ -151,11 +142,10 @@
                                             <div class="col-md-3">
                                                 <h6 class="upper hidden-xs">Shop</h6>
                                                 <ul class="sep-top-xs widget widget-cat">
-                                                    <li class="cat-item active"><a href="home-3.html" class="upper">Shop Landing Page</a></li>
-                                                    <li class="cat-item"><a href="shop.html" class="upper">Shop category</a></li>
-                                                    <li class="cat-item"><a href="shop-sidebar-left.html" class="upper">Shop with left sidebar</a></li>
-                                                    <li class="cat-item"><a href="shop-sidebar-right.html" class="upper">Shop with right sidebar</a></li>
-                                                    <li class="cat-item"><a href="shop-product.html" class="upper">Shop product page</a></li>
+                                                    <li class="cat-item active"><a href="@Url.Action("Index","Product")"  class="upper">List Products</a></li>
+                                                    <li class="cat-item"><a href="@Url.Action("Index","Order")" class="upper">My Orders</a></li>
+                                                    <li class="cat-item"><a href="@Url.Action("Create","Order")" class="upper">My Cart</a></li>
+                                                    
                                                 </ul>
                                             </div>
                                             <div class="col-md-3 hidden-xs">
@@ -218,11 +208,15 @@
                         </li>
                         <!-- istanzio un id univoco-->
                         <li class="dropdown">
-                            <a href="#" title="Events" id="menu_item_Events">Events</a>
+                            <a href="~/Events/listEvent/all" title="Events" id="menu_item_Events">Events</a>
                         </li>
                         <!-- istanzio un id univoco-->
                         <li class="dropdown">
-                            <a href="@Url.Action("GetProfile", "User")" title="Profile"  id="menu_item_Profile" >Profile</a>
+                            <a href="@Url.Action("GetAllEntries", "Guestbook")" title="Guestbook" id="menu_item_Guestbook">Guestbook</a>
+                        </li>
+                        <!-- istanzio un id univoco-->
+                        <li class="dropdown">
+                            <a href="@Url.Action("GetProfile", "User")" title="Profile" id="menu_item_Profile">Profile</a>
                         </li>
                     </ul>
                 </div>
@@ -428,8 +422,8 @@
             }, i[r].l = 1 * new Date(); a = s.createElement(o),
             m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-      ga('create', 'XX-XXXXXXXX-XX', 'auto');
-      ga('send', 'pageview');
+        ga('create', 'XX-XXXXXXXX-XX', 'auto');
+        ga('send', 'pageview');
     </script>
     @RenderSection("Scripts", false)
 </body>

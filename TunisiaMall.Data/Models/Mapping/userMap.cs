@@ -65,11 +65,11 @@ namespace TunisiaMall.Data.Models.Mapping
 
             Map<customer>(c =>
             {
-                c.Requires("USER_TYPE").HasValue("customer");
+                c.Requires("USER_TYPE").HasValue("Customer");
             });
             Map<shopowner>(c =>
             {
-                c.Requires("USER_TYPE").HasValue("shopOwner");
+                c.Requires("USER_TYPE").HasValue("Shopowner");
             });
         }
     }

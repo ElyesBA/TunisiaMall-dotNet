@@ -1,0 +1,78 @@
+﻿@model IEnumerable<TunisiaMall.Domain.Entities.Event>
+@{
+    ViewBag.Title = "listEvent";
+}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 sep-top-2x">
+                <div class="sep-bottom-md filter-prod">
+                       @using (Html.BeginForm("listEvent", "Events", FormMethod.Get, new { id = "form-sorting" , @class = "pull-right" }))
+                        {
+                            <div class="form-group">
+                                <select name="orderby" class="form-control input-lg rounded" onchange="$('#form-sorting').submit();">
+                                    <option value="all" @ViewBag.selectall >Tous les events</option>
+                                    <option value="me" @ViewBag.selectme >Mes events</option>
+                                    <option value="futur" @ViewBag.selectfutur >Les prochaine events</option>
+                                    <option value="last" @ViewBag.selectlast >Les ancien events</option>
+                                </select>
+                            </div>
+                        }
+                </div>
+                <div class="row">
+                    
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-4 sep-bottom-lg">
+                            <a href="/DetailEvent/@item.idEvent" class="product-image outline-outward">
+                                <img src="@Url.Content("~/Content/images/events/"+item.idEvent+".png")" class="img-responsive">
+                            </a>
+                            <div class="product-title">
+                                <span class="upper">@Html.DisplayFor(modelItem => item.typeEvent)</span>
+                                <p>@Html.DisplayFor(modelItem => item.titleEvent)</p>
+                            </div>
+                            <div class="product-detail">
+                                <div class="pull-right price-shop text-right">
+                                    <ins>@Html.DisplayFor(modelItem => item.periodEvent) Jours</ins>
+                                </div>
+                                <!--<div class="rate">
+                                    <input type="number" name="" value="4" data-clearable="remove" data-max="5" data-min="1" data-icon-lib="fa" data-active-icon="fa-star" data-inactive-icon="fa-star-o" data-clearable-icon="fa-times" class="rating">
+                                </div>-->
+                                <a href="#">@Html.DisplayFor(modelItem => item.dateEvent)</a>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="col-md-3 sep-top-2x">
+                <h5 class="widget-title upper sep-bottom-xs">Tunisia Mall Stores</h5>
+                <ul class="widget widget-cat sep-bottom-lg">
+                    <li class="cat-item"><a href="#" class="upper">ZARA</a></li>
+                    <li class="cat-item"><a href="#" class="upper">Pull bear</a></li>
+                    <li class="cat-item"><a href="#" class="upper">Mickael kors</a></li>
+                    <li class="cat-item"><a href="#" class="upper">Bershka</a></li>
+                    <li class="cat-item"><a href="#" class="upper">lufian</a></li>
+                </ul>
+                <h5 class="widget-title upper sep-bottom-xs">Bientot</h5>
+                <ul class="widget widget-media sep-bottom-lg">
+                    
+                    @foreach (var item in ViewBag.topEvents)
+                    {
+                        <li class="media media-bordered">
+                            <a href="#" class="pull-left"><img src="@Url.Content("~/Content/images/events/"+item.idEvent+".png")" alt="@item.titleEvent" width="82" height="100" class="img-responsive"></a>
+                            <div class="media-body">
+                                <small class="upper">@item.dateEvent</small>
+                                <h6 class="media-heading"><a href="#">@item.titleEvent</a></h6>
+                                <div class="product-detail">
+                                    <div class="price-shop">
+                                        <ins>@item.periodEvent Jours</ins>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
